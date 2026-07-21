@@ -1,0 +1,134 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* Brand Colors */
+  --brand-primary: #1A2B4C;
+  --brand-secondary: #4A90D9;
+  --brand-accent: #2ECC71;
+  
+  --background: #ffffff;
+  --background-alt: #F5F7FA;
+  
+  --foreground: #1A1A1A;
+  --foreground-secondary: #4A4A4A;
+  --foreground-tertiary: #888888;
+  
+  --card: #ffffff;
+  --card-foreground: #1A1A1A;
+  
+  --popover: #ffffff;
+  --popover-foreground: #1A1A1A;
+  
+  --primary: #1A2B4C;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #4A90D9;
+  --secondary-foreground: #ffffff;
+  
+  --accent: #2ECC71;
+  --accent-foreground: #ffffff;
+  
+  --muted: #F5F7FA;
+  --muted-foreground: #888888;
+  
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #F5F7FA;
+  --switch-background: #cbced4;
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --ring: #4A90D9;
+  --radius: 0.75rem; /* 12px */
+}
+
+.dark {
+  /* Minimal dark mode support for now, mapping mostly to dark navy */
+  --background: #10192d;
+  --background-alt: #162440;
+  --foreground: #f3f4f6;
+  --foreground-secondary: #d1d5db;
+  --foreground-tertiary: #9ca3af;
+  
+  --card: #162440;
+  --card-foreground: #f3f4f6;
+  
+  --primary: #4A90D9;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #2ECC71;
+  --secondary-foreground: #10192d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 4px); /* 8px */
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius); /* 12px */
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  h2 {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  h3 {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+}
