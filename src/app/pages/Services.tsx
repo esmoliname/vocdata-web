@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useLang } from '../context/LangContext';
 import { FileText, Mic, Video, LayoutDashboard, Languages, ShieldCheck, HeartPulse, Truck, Briefcase, ShoppingCart, Cpu } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -11,7 +11,7 @@ export const Services = () => {
 
   return (
     <div className="flex flex-col w-full font-sans bg-[#0B1121]">
-      {/* 2.2. SecciÃ³n de Servicios (Our Services) */}
+      {/* 2.2. Sección de Servicios (Our Services) */}
       <section className="pt-32 pb-24 bg-gradient-to-b from-[#0F172A] to-[#1E293B] relative overflow-hidden">
         {/* Dynamic Background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(74,144,217,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(74,144,217,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
@@ -29,38 +29,38 @@ export const Services = () => {
             {[
               {
                 icon: <FileText size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
-                desc: t({ ES: 'Etiquetado semÃ¡ntico, NER, anÃ¡lisis de sentimiento bilingÃ¼e y clasificaciÃ³n de intenciones para NLP.', EN: 'Semantic labeling, NER, bilingual sentiment analysis and intent classification for NLP.', ET: 'Semantiline mÃ¤rgistamine, NER, kakskeelne sentimentanalÃ¼Ã¼s NLP jaoks.', DE: 'Semantische Kennzeichnung, NER, bilinguale Sentimentanalyse fÃ¼r NLP.' }),
+                title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
+                desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe y clasificación de intenciones para NLP.', EN: 'Semantic labeling, NER, bilingual sentiment analysis and intent classification for NLP.', ET: 'Semantiline märgistamine, NER, kakskeelne sentimentanalüüs NLP jaoks.', DE: 'Semantische Kennzeichnung, NER, bilinguale Sentimentanalyse für NLP.' }),
                 imageUrl: '/images/services/service-text.webp'
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
-                desc: t({ ES: 'TranscripciÃ³n precisa, diarizaciÃ³n de hablantes y etiquetado fonÃ©tico para modelos de voz.', EN: 'Accurate transcription, speaker diarization, and phonetic labeling for voice models.', ET: 'TÃ¤pne transkriptsioon ja foneetiline mÃ¤rgistamine hÃ¤Ã¤lemudelitele.', DE: 'Genaue Transkription und phonetische Kennzeichnung fÃ¼r Sprachmodelle.' }),
+                title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
+                desc: t({ ES: 'Transcripción precisa, diarización de hablantes y etiquetado fonético para modelos de voz.', EN: 'Accurate transcription, speaker diarization, and phonetic labeling for voice models.', ET: 'Täpne transkriptsioon ja foneetiline märgistamine häälemudelitele.', DE: 'Genaue Transkription und phonetische Kennzeichnung für Sprachmodelle.' }),
                 imageUrl: '/images/services/service-audio.webp'
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
-                desc: t({ ES: 'Etiquetado de objetos, seguimiento de cajas delimitadoras y reconocimiento de acciones espaciales.', EN: 'Object labeling, bounding box tracking, and spatial action recognition.', ET: 'Objektide mÃ¤rgistamine ja ruumiline tegevuse tuvastamine.', DE: 'Objektkennzeichnung und rÃ¤umliche Aktionserkennung.' }),
+                title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
+                desc: t({ ES: 'Etiquetado de objetos, seguimiento de cajas delimitadoras y reconocimiento de acciones espaciales.', EN: 'Object labeling, bounding box tracking, and spatial action recognition.', ET: 'Objektide märgistamine ja ruumiline tegevuse tuvastamine.', DE: 'Objektkennzeichnung und räumliche Aktionserkennung.' }),
                 imageUrl: '/images/services/service-video.webp'
               },
               {
                 icon: <LayoutDashboard size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'ClasificaciÃ³n de ImÃ¡genes', EN: 'Image Classification', ET: 'Piltide klassifitseerimine', DE: 'Bildklassifizierung' }),
-                desc: t({ ES: 'SegmentaciÃ³n semÃ¡ntica, polÃ­gonos, puntos clave (keypoints) para visiÃ³n por computadora.', EN: 'Semantic segmentation, polygons, keypoints for computer vision.', ET: 'Semantiline segmenteerimine ja vÃµtmepunktid arvutinÃ¤gemise jaoks.', DE: 'Semantische Segmentierung und Keypoints fÃ¼r Computer Vision.' }),
+                title: t({ ES: 'Clasificación de Imágenes', EN: 'Image Classification', ET: 'Piltide klassifitseerimine', DE: 'Bildklassifizierung' }),
+                desc: t({ ES: 'Segmentación semántica, polígonos, puntos clave (keypoints) para visión por computadora.', EN: 'Semantic segmentation, polygons, keypoints for computer vision.', ET: 'Semantiline segmenteerimine ja võtmepunktid arvutinägemise jaoks.', DE: 'Semantische Segmentierung und Keypoints für Computer Vision.' }),
                 imageUrl: '/images/services/service-image.webp'
               },
               {
                 icon: <Languages size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'RLHF BilingÃ¼e', EN: 'Bilingual RLHF', ET: 'Kakskeelne RLHF', DE: 'Bilinguales RLHF' }),
-                desc: t({ ES: 'Reinforcement Learning from Human Feedback con especialistas nativos en ES y EN.', EN: 'Reinforcement Learning from Human Feedback with native specialists in ES and EN.', ET: 'StiimulÃµpe inimeste tagasisidest (RLHF) kohalike spetsialistidega.', DE: 'Reinforcement Learning from Human Feedback mit muttersprachlichen Spezialisten.' }),
+                title: t({ ES: 'RLHF Bilingüe', EN: 'Bilingual RLHF', ET: 'Kakskeelne RLHF', DE: 'Bilinguales RLHF' }),
+                desc: t({ ES: 'Reinforcement Learning from Human Feedback con especialistas nativos en ES y EN.', EN: 'Reinforcement Learning from Human Feedback with native specialists in ES and EN.', ET: 'Stiimulõpe inimeste tagasisidest (RLHF) kohalike spetsialistidega.', DE: 'Reinforcement Learning from Human Feedback mit muttersprachlichen Spezialisten.' }),
                 imageUrl: '/images/services/service-rlhf.webp'
               },
               {
                 icon: <ShieldCheck size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'ModeraciÃ³n de Contenido', EN: 'Content Moderation', ET: 'Sisu modereerimine', DE: 'Inhaltsmoderation' }),
-                desc: t({ ES: 'RevisiÃ³n y etiquetado de contenido sensible con polÃ­ticas de seguridad y confianza.', EN: 'Review and labeling of sensitive content with trust and safety policies.', ET: 'Tundliku sisu Ã¼levaatamine ja mÃ¤rgistamine usalduspoliitikaga.', DE: 'ÃœberprÃ¼fung und Kennzeichnung sensibler Inhalte mit Sicherheitsrichtlinien.' }),
+                title: t({ ES: 'Moderación de Contenido', EN: 'Content Moderation', ET: 'Sisu modereerimine', DE: 'Inhaltsmoderation' }),
+                desc: t({ ES: 'Revisión y etiquetado de contenido sensible con políticas de seguridad y confianza.', EN: 'Review and labeling of sensitive content with trust and safety policies.', ET: 'Tundliku sisu ülevaatamine ja märgistamine usalduspoliitikaga.', DE: 'Überprüfung und Kennzeichnung sensibler Inhalte mit Sicherheitsrichtlinien.' }),
                 imageUrl: '/images/services/service-moderation.webp'
               }
             ].map((srv, idx) => (
@@ -99,7 +99,7 @@ export const Services = () => {
               viewport={{ once: true }}
               className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#FFFFFF] mb-6"
             >
-              {t({ ES: 'Explora nuestra PrecisiÃ³n de AnotaciÃ³n', EN: 'Explore our Annotation Precision', ET: 'Uurige meie annoteerimistÃ¤psust', DE: 'Entdecken Sie unsere AnnotationsprÃ¤zision' })}
+              {t({ ES: 'Explora nuestra Precisión de Anotación', EN: 'Explore our Annotation Precision', ET: 'Uurige meie annoteerimistäpsust', DE: 'Entdecken Sie unsere Annotationspräzision' })}
             </motion.h3>
             <AIRevealScanner />
           </div>
@@ -115,7 +115,7 @@ export const Services = () => {
             viewport={{ once: true }}
             className="text-[32px] md:text-[40px] font-semibold text-[#1A1A1A] mb-4"
           >
-            {t({ ES: 'Industrias que Servimos', EN: 'Industries We Serve', ET: 'TÃ¶Ã¶stusharud, mida teenindame', DE: 'Branchen, die wir bedienen' })}
+            {t({ ES: 'Industrias que Servimos', EN: 'Industries We Serve', ET: 'Tööstusharud, mida teenindame', DE: 'Branchen, die wir bedienen' })}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -123,16 +123,16 @@ export const Services = () => {
             viewport={{ once: true }}
             className="text-[16px] md:text-[18px] text-[#4A4A4A] font-normal mb-16 max-w-2xl mx-auto leading-[1.6]"
           >
-            {t({ ES: 'Experiencia en dominios especÃ­ficos para asegurar la relevancia de los datos.', EN: 'Domain-specific expertise to ensure data relevance.', ET: 'DomeenipÃµhised teadmised andmete asjakohasuse tagamiseks.', DE: 'DomÃ¤nenspezifisches Fachwissen zur GewÃ¤hrleistung der Datenrelevanz.' })}
+            {t({ ES: 'Experiencia en dominios específicos para asegurar la relevancia de los datos.', EN: 'Domain-specific expertise to ensure data relevance.', ET: 'Domeenipõhised teadmised andmete asjakohasuse tagamiseks.', DE: 'Domänenspezifisches Fachwissen zur Gewährleistung der Datenrelevanz.' })}
           </motion.p>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16">
             {[
               { icon: <HeartPulse size={48} />, label: t({ ES: 'Salud', EN: 'Healthcare', ET: 'Tervishoid', DE: 'Gesundheitswesen' }) },
-              { icon: <Truck size={48} />, label: t({ ES: 'LogÃ­stica', EN: 'Logistics', ET: 'Logistika', DE: 'Logistik' }) },
+              { icon: <Truck size={48} />, label: t({ ES: 'Logística', EN: 'Logistics', ET: 'Logistika', DE: 'Logistik' }) },
               { icon: <Briefcase size={48} />, label: t({ ES: 'Finanzas', EN: 'Finance', ET: 'Rahandus', DE: 'Finanzen' }) },
               { icon: <ShoppingCart size={48} />, label: t({ ES: 'Retail', EN: 'Retail', ET: 'Jaekaubandus', DE: 'Einzelhandel' }) },
-              { icon: <Cpu size={48} />, label: t({ ES: 'TecnologÃ­a', EN: 'Technology', ET: 'Tehnoloogia', DE: 'Technologie' }) },
+              { icon: <Cpu size={48} />, label: t({ ES: 'Tecnología', EN: 'Technology', ET: 'Tehnoloogia', DE: 'Technologie' }) },
             ].map((ind, idx) => (
               <motion.div 
                 key={idx} 
@@ -160,8 +160,8 @@ export const Services = () => {
             transition={{ duration: 0.8 }}
           >
             <Link to="/contact" className="text-[18px] font-semibold text-[#4A90D9] hover:text-[#2ECC71] transition-colors duration-300 inline-flex items-center gap-2 group">
-              {t({ ES: 'Â¿Necesitas una soluciÃ³n personalizada?', EN: 'Need a custom solution?', ET: 'Vajate kohandatud lahendust?', DE: 'BenÃ¶tigen Sie eine maÃŸgeschneiderte LÃ¶sung?' })}
-              <span className="transform group-hover:translate-x-1 transition-transform">â†’</span>
+              {t({ ES: '¿Necesitas una solución personalizada?', EN: 'Need a custom solution?', ET: 'Vajate kohandatud lahendust?', DE: 'Benötigen Sie eine maßgeschneiderte Lösung?' })}
+              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </motion.div>
         </div>

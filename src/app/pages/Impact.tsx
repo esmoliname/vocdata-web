@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { useLang } from '../context/LangContext';
 import { motion } from 'motion/react';
 import { Award, GraduationCap, Users } from 'lucide-react';
@@ -37,7 +37,7 @@ export const Impact = () => {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
               </span>
               <span className="text-[14px] font-semibold text-emerald-400 tracking-wider">
-                {t({ ES: 'COMPROMISO SOCIAL B2B', EN: 'B2B SOCIAL COMMITMENT', ET: 'B2B SOTSIAALNE PÃœHENDUMUS', DE: 'B2B SOZIALES ENGAGEMENT' })}
+                {t({ ES: 'COMPROMISO SOCIAL B2B', EN: 'B2B SOCIAL COMMITMENT', ET: 'B2B SOTSIAALNE PÜHENDUMUS', DE: 'B2B SOZIALES ENGAGEMENT' })}
               </span>
             </div>
 
@@ -46,18 +46,18 @@ export const Impact = () => {
               {t({
                 ES: 'Responsabilidad Social Empresarial: Impulsando el Talento TI',
                 EN: 'Corporate Social Responsibility: Empowering IT Talent',
-                ET: 'EttevÃµtte sotsiaalne vastutus: IT-talendi toetamine',
-                DE: 'Soziale Verantwortung: FÃ¶rderung von IT-Talenten'
+                ET: 'Ettevõtte sotsiaalne vastutus: IT-talendi toetamine',
+                DE: 'Soziale Verantwortung: Förderung von IT-Talenten'
               })}
             </h1>
 
             {/* Description */}
             <p className="text-lg sm:text-xl text-slate-300 mb-12 max-w-3xl leading-relaxed">
               {t({
-                ES: 'Nos comprometemos de forma transparente a destinar un porcentaje de nuestros ingresos anuales para becar y apoyar financieramente a estudiantes universitarios de carreras de TI, Ciencias de la ComputaciÃ³n e Inteligencia Artificial.',
+                ES: 'Nos comprometemos de forma transparente a destinar un porcentaje de nuestros ingresos anuales para becar y apoyar financieramente a estudiantes universitarios de carreras de TI, Ciencias de la Computación e Inteligencia Artificial.',
                 EN: 'We transparently commit to allocating a percentage of our annual revenue to scholarship and financially support university students in IT, Computer Science, and Artificial Intelligence fields.',
-                ET: 'Kohustume lÃ¤bipaistvalt suunama osa oma aastatulust IT, arvutiteaduse ja tehisintellekti eriala Ã¼liÃµpilaste stipendiaatideks ja rahaliseks toetamiseks.',
-                DE: 'Wir verpflichten uns transparent, einen Prozentsatz unseres Jahresumsatzes als Stipendium und finanzielle UnterstÃ¼tzung fÃ¼r UniversitÃ¤tsstudenten in den Bereichen IT, Informatik und KÃ¼nstliche Intelligenz bereitzustellen.'
+                ET: 'Kohustume läbipaistvalt suunama osa oma aastatulust IT, arvutiteaduse ja tehisintellekti eriala üliõpilaste stipendiaatideks ja rahaliseks toetamiseks.',
+                DE: 'Wir verpflichten uns transparent, einen Prozentsatz unseres Jahresumsatzes als Stipendium und finanzielle Unterstützung für Universitätsstudenten in den Bereichen IT, Informatik und Künstliche Intelligenz bereitzustellen.'
               })}
             </p>
 
@@ -91,10 +91,10 @@ export const Impact = () => {
                 <div className="flex flex-col items-center">
                   <h3 className="text-3xl font-bold text-white mb-2">TI</h3>
                   <span className="text-[15px] font-medium text-emerald-400">
-                    {t({ ES: 'Apoyo AcadÃ©mico', EN: 'Academic Support', ET: 'Akadeemiline Tugi', DE: 'Akademische UnterstÃ¼tzung' })}
+                    {t({ ES: 'Apoyo Académico', EN: 'Academic Support', ET: 'Akadeemiline Tugi', DE: 'Akademische Unterstützung' })}
                   </span>
                   <p className="text-[14px] text-slate-400 mt-2 text-center">
-                    {t({ ES: 'Becas universitarias', EN: 'University scholarships', ET: 'Ãœlikooli stipendiumid', DE: 'UniversitÃ¤tsstipendien' })}
+                    {t({ ES: 'Becas universitarias', EN: 'University scholarships', ET: 'Ülikooli stipendiumid', DE: 'Universitätsstipendien' })}
                   </p>
                 </div>
               </motion.div>
@@ -114,7 +114,7 @@ export const Impact = () => {
                     {t({ ES: 'Talento Emergente', EN: 'Emerging Talent', ET: 'Tekkiv Talent', DE: 'Aufstrebendes Talent' })}
                   </span>
                   <p className="text-[14px] text-slate-400 mt-2 text-center">
-                    {t({ ES: 'Futuros ingenieros', EN: 'Future engineers', ET: 'Tulevased insenerid', DE: 'ZukÃ¼nftige Ingenieure' })}
+                    {t({ ES: 'Futuros ingenieros', EN: 'Future engineers', ET: 'Tulevased insenerid', DE: 'Zukünftige Ingenieure' })}
                   </p>
                 </div>
               </motion.div>

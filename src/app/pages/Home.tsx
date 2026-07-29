@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLang } from '../context/LangContext';
 import { FileText, Mic, Video } from 'lucide-react';
 import { Link } from 'react-router';
@@ -83,9 +83,9 @@ export const Home = () => {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] leading-tight mb-6 max-w-4xl [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]"
           >
             {t({
-              ES: 'Datos BilingÃ¼es, Perfectamente Anotados',
+              ES: 'Datos Bilingües, Perfectamente Anotados',
               EN: 'Bilingual Data, Perfectly Annotated',
-              ET: 'Kakskeelsed andmed, suurepÃ¤raselt annoteritud',
+              ET: 'Kakskeelsed andmed, suurepäraselt annoteritud',
               DE: 'Bilinguale Daten, perfekt annotiert'
             })}
           </motion.h1>
@@ -96,10 +96,10 @@ export const Home = () => {
             className="text-[18px] text-[#CBD5E1] mb-10 max-w-[600px] font-normal leading-[1.6]"
           >
             {t({
-              ES: 'AnotaciÃ³n de datos bilingÃ¼e para IA y Machine Learning. PrecisiÃ³n lingÃ¼Ã­stica y cultural en espaÃ±ol e inglÃ©s.',
+              ES: 'Anotación de datos bilingüe para IA y Machine Learning. Precisión lingüística y cultural en español e inglés.',
               EN: 'Bilingual data annotation for AI and Machine Learning. Linguistic and cultural precision in Spanish and English.',
-              ET: 'Kakskeelne andmete annoteerimine tehisintellekti ja masinÃµppe jaoks. Lingvistiline ja kultuuriline tÃ¤psus.',
-              DE: 'Bilinguale Datenannotation fÃ¼r KI und Machine Learning. Sprachliche und kulturelle PrÃ¤zision.'
+              ET: 'Kakskeelne andmete annoteerimine tehisintellekti ja masinõppe jaoks. Lingvistiline ja kultuuriline täpsus.',
+              DE: 'Bilinguale Datenannotation für KI und Machine Learning. Sprachliche und kulturelle Präzision.'
             })}
           </motion.p>
           <motion.div 
@@ -110,26 +110,26 @@ export const Home = () => {
           >
             <Link to="/contact">
               <button className="w-full sm:w-auto h-[56px] px-8 rounded-lg bg-[#4A90D9] text-[#FFFFFF] font-semibold text-[18px] hover:bg-[#3B73AD] hover:shadow-[0_4px_15px_rgba(74,144,217,0.4)] transition-all duration-300">
-                {t({ ES: 'Solicitar Demo', EN: 'Request Demo', ET: 'KÃ¼si Demot', DE: 'Demo anfordern' })}
+                {t({ ES: 'Solicitar Demo', EN: 'Request Demo', ET: 'Küsi Demot', DE: 'Demo anfordern' })}
               </button>
             </Link>
             <Link to="/services">
               <button className="w-full sm:w-auto h-[56px] px-8 rounded-lg border-2 border-[#FFFFFF] text-[#FFFFFF] font-semibold text-[18px] hover:bg-[#FFFFFF] hover:text-[#0B1121] transition-all duration-300">
-                {t({ ES: 'Conocer mÃ¡s', EN: 'Learn More', ET: 'Lisateave', DE: 'Mehr erfahren' })}
+                {t({ ES: 'Conocer más', EN: 'Learn More', ET: 'Lisateave', DE: 'Mehr erfahren' })}
               </button>
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. MÃ‰TRICAS DE CONFIANZA */}
+      {/* 2. MÉTRICAS DE CONFIANZA */}
       <section className="py-20 bg-[#FFFFFF] relative z-20">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 -mt-32">
             {[
-              { value: '99.8%', label: t({ ES: 'PrecisiÃ³n en AnotaciÃ³n', EN: 'Annotation Accuracy', ET: 'Annoteerimise tÃ¤psus', DE: 'Annotationsgenauigkeit' }) },
+              { value: '99.8%', label: t({ ES: 'Precisión en Anotación', EN: 'Annotation Accuracy', ET: 'Annoteerimise täpsus', DE: 'Annotationsgenauigkeit' }) },
               { value: '0.92', label: t({ ES: 'Acuerdo entre Anotadores (IAA)', EN: 'Inter-Annotator Agreement (IAA)', ET: 'Annotaatorite vaheline kokkulepe', DE: 'Inter-Annotator-Agreement (IAA)' }) },
-              { value: '+50M', label: t({ ES: 'Datos Procesados', EN: 'Processed Data', ET: 'TÃ¶Ã¶deldud andmed', DE: 'Verarbeitete Daten' }) }
+              { value: '+50M', label: t({ ES: 'Datos Procesados', EN: 'Processed Data', ET: 'Töödeldud andmed', DE: 'Verarbeitete Daten' }) }
             ].map((metric, idx) => (
               <motion.div
                 key={idx}
@@ -165,20 +165,20 @@ export const Home = () => {
             {[
               {
                 icon: <FileText size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
-                desc: t({ ES: 'Etiquetado semÃ¡ntico, NER, anÃ¡lisis de sentimiento bilingÃ¼e', EN: 'Semantic labeling, NER, bilingual sentiment analysis', ET: 'Semantiline mÃ¤rgistamine, NER', DE: 'Semantische Kennzeichnung, NER' }),
+                title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
+                desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe', EN: 'Semantic labeling, NER, bilingual sentiment analysis', ET: 'Semantiline märgistamine, NER', DE: 'Semantische Kennzeichnung, NER' }),
                 img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&fit=crop'
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
-                desc: t({ ES: 'TranscripciÃ³n, diarizaciÃ³n de hablantes, etiquetado fonÃ©tico', EN: 'Transcription, speaker diarization, phonetic labeling', ET: 'Transkriptsioon, kÃµnelejate eristamine', DE: 'Transkription, Sprecherdiarisierung' }),
+                title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
+                desc: t({ ES: 'Transcripción, diarización de hablantes, etiquetado fonético', EN: 'Transcription, speaker diarization, phonetic labeling', ET: 'Transkriptsioon, kõnelejate eristamine', DE: 'Transkription, Sprecherdiarisierung' }),
                 img: 'https://images.unsplash.com/photo-1516280440502-8610eb675039?q=80&w=800&fit=crop'
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
-                title: t({ ES: 'AnotaciÃ³n de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
-                desc: t({ ES: 'Etiquetado de objetos, seguimiento, reconocimiento de acciones', EN: 'Object labeling, tracking, action recognition', ET: 'Objektide mÃ¤rgistamine, jÃ¤lgimine', DE: 'Objektkennzeichnung, Tracking' }),
+                title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
+                desc: t({ ES: 'Etiquetado de objetos, seguimiento, reconocimiento de acciones', EN: 'Object labeling, tracking, action recognition', ET: 'Objektide märgistamine, jälgimine', DE: 'Objektkennzeichnung, Tracking' }),
                 img: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&fit=crop'
               }
             ].map((srv, idx) => (
@@ -212,14 +212,14 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <Link to="/services" className="text-[18px] font-semibold text-[#4A90D9] hover:text-[#2ECC71] transition-colors duration-300 inline-flex items-center gap-2 group">
-              {t({ ES: 'Ver todos los servicios', EN: 'View all services', ET: 'Vaata kÃµiki teenuseid', DE: 'Alle Dienstleistungen anzeigen' })}
-              <span className="transform group-hover:translate-x-1 transition-transform">â†’</span>
+              {t({ ES: 'Ver todos los servicios', EN: 'View all services', ET: 'Vaata kõiki teenuseid', DE: 'Alle Dienstleistungen anzeigen' })}
+              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. NUEVO MÃ“DULO DE ECOSISTEMA / COMPETENCIA */}
+      {/* 4. NUEVO MÓDULO DE ECOSISTEMA / COMPETENCIA */}
       <section ref={graphSectionRef} className="py-24 bg-gradient-to-b from-[#0F172A] to-[#1E293B] overflow-hidden relative">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {particles.slice(0, 15).map((_, i) => (
@@ -247,7 +247,7 @@ export const Home = () => {
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-[32px] md:text-[40px] font-semibold text-[#FFFFFF] mb-4">
-              {t({ ES: 'El Ecosistema de Datos y Nuestro Factor Diferenciador', EN: 'The Data Ecosystem and Our Differentiating Factor', ET: 'AndmeÃ¶kosÃ¼steem ja meie eristav tegur', DE: 'Das DatenÃ¶kosystem und unser Differenzierungsfaktor' })}
+              {t({ ES: 'El Ecosistema de Datos y Nuestro Factor Diferenciador', EN: 'The Data Ecosystem and Our Differentiating Factor', ET: 'Andmeökosüsteem ja meie eristav tegur', DE: 'Das Datenökosystem und unser Differenzierungsfaktor' })}
             </h2>
           </div>
 
@@ -308,25 +308,25 @@ export const Home = () => {
           >
             <p className="text-[18px] text-[#CBD5E1] leading-[1.6]">
               {t({
-                ES: 'Vocdata.ai se diferencia por su enfoque en precisiÃ³n bilingÃ¼e, atenciÃ³n personalizada y lingÃ¼istas nativos especializados, asegurando la mÃ¡s alta calidad en cada interacciÃ³n.',
+                ES: 'Vocdata.ai se diferencia por su enfoque en precisión bilingüe, atención personalizada y lingüistas nativos especializados, asegurando la más alta calidad en cada interacción.',
                 EN: 'Vocdata.ai stands out for its focus on bilingual accuracy, personalized attention, and specialized native linguists, ensuring the highest quality in every interaction.',
-                ET: 'Vocdata.ai paistab silma keskendumisega kakskeelsele tÃ¤psusele, isikupÃ¤rasele tÃ¤helepanule ja spetsialiseerunud keeleteadlastele.',
-                DE: 'Vocdata.ai zeichnet sich durch den Fokus auf bilinguale Genauigkeit, persÃ¶nliche Betreuung und spezialisierte Muttersprachler aus.'
+                ET: 'Vocdata.ai paistab silma keskendumisega kakskeelsele täpsusele, isikupärasele tähelepanule ja spetsialiseerunud keeleteadlastele.',
+                DE: 'Vocdata.ai zeichnet sich durch den Fokus auf bilinguale Genauigkeit, persönliche Betreuung und spezialisierte Muttersprachler aus.'
               })}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 5. LLAMADA A LA ACCIÃ“N FINAL (CTA) */}
+      {/* 5. LLAMADA A LA ACCIÓN FINAL (CTA) */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#0B1121] py-20">
         
-        {/* Fondo de Aurora TecnolÃ³gica */}
+        {/* Fondo de Aurora Tecnológica */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-[#0B1121]/80 to-[#0B1121] z-0"></div>
         <div className="absolute top-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-cyan-900/30 via-transparent to-transparent z-0 opacity-70"></div>
         <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-indigo-900/30 via-transparent to-transparent z-0 opacity-70"></div>
 
-        {/* Fondo de CuadrÃ­cula (Mesh Grid) */}
+        {/* Fondo de Cuadrícula (Mesh Grid) */}
         <div 
           className="absolute inset-0 opacity-15 pointer-events-none z-0"
           style={{
@@ -349,22 +349,22 @@ export const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-3xl"></div>
 
             <h2 className="text-[32px] md:text-[48px] font-semibold text-[#FFFFFF] mb-6 relative z-10">
-              {t({ ES: 'Â¿Listo para Anotar tus Datos con PrecisiÃ³n?', EN: 'Ready to Annotate Your Data with Precision?', ET: 'Kas olete valmis oma andmeid tÃ¤pselt annoteerima?', DE: 'Bereit, Ihre Daten prÃ¤zise zu annotieren?' })}
+              {t({ ES: '¿Listo para Anotar tus Datos con Precisión?', EN: 'Ready to Annotate Your Data with Precision?', ET: 'Kas olete valmis oma andmeid täpselt annoteerima?', DE: 'Bereit, Ihre Daten präzise zu annotieren?' })}
             </h2>
             <p className="text-[18px] text-[#CBD5E1] max-w-[600px] mx-auto mb-10 leading-[1.6] relative z-10">
               {t({
-                ES: 'Solicita una demo y descubre cÃ³mo podemos transformar tus datos en entrenamiento de IA de clase mundial.',
+                ES: 'Solicita una demo y descubre cómo podemos transformar tus datos en entrenamiento de IA de clase mundial.',
                 EN: 'Request a demo and discover how we can transform your data into world-class AI training data.',
-                ET: 'KÃ¼sige demot ja avastage, kuidas saame teie andmed muuta maailmatasemel AI koolitusandmeteks.',
-                DE: 'Fordern Sie eine Demo an und entdecken Sie, wie wir Ihre Daten in erstklassige KI-Trainingsdaten verwandeln kÃ¶nnen.'
+                ET: 'Küsige demot ja avastage, kuidas saame teie andmed muuta maailmatasemel AI koolitusandmeteks.',
+                DE: 'Fordern Sie eine Demo an und entdecken Sie, wie wir Ihre Daten in erstklassige KI-Trainingsdaten verwandeln können.'
               })}
             </p>
             
             <div className="relative z-10 inline-block">
               <Link to="/contact">
                  <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium px-8 py-4 rounded-xl hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:from-blue-500 hover:to-cyan-400 transition-all duration-300 group inline-flex items-center gap-2">
-                    {t({ ES: 'Solicitar Demo', EN: 'Request Demo', ET: 'KÃ¼si Demot', DE: 'Demo anfordern' })} 
-                    <span className="transform group-hover:translate-x-1 transition-transform">â†’</span>
+                    {t({ ES: 'Solicitar Demo', EN: 'Request Demo', ET: 'Küsi Demot', DE: 'Demo anfordern' })} 
+                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                  </button>
               </Link>
             </div>
