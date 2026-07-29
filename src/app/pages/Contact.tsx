@@ -24,9 +24,9 @@ export const Contact = () => {
     setStatus('idle');
     setErrorMessage('');
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_vocdata';
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_fh5mx6b';
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'nrYxE1wsrhLXELpAi';
+    const SERVICE_ID = 'service_qx2sx0r';
+    const TEMPLATE_ID = 'template_ulvj8i6';
+    const PUBLIC_KEY = 'fX-RfT6OE3vgvp2UA';
 
     const templateParams = {
       from_name: formData.name,
