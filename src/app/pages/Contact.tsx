@@ -26,17 +26,15 @@ export const Contact = () => {
 
     console.log("Enviando EmailJS:", {
       service: 'service_qx2sx0r',
-      template: 'template_ulvj8i6',
+      template: 'template_sf0rbgq',
       key: 'fX-RfT6OE3vgvp2UA'
     });
 
     emailjs.send(
       'service_qx2sx0r',
-      'template_ulvj8i6',
+      'template_sf0rbgq',
       {
-        from_name: formData.name,
         name: formData.name,
-        reply_to: formData.email,
         email: formData.email,
         company: formData.company,
         message: formData.message,
