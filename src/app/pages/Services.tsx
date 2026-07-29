@@ -31,37 +31,37 @@ export const Services = () => {
                 icon: <FileText size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
                 desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe y clasificación de intenciones para NLP.', EN: 'Semantic labeling, NER, bilingual sentiment analysis and intent classification for NLP.', ET: 'Semantiline märgistamine, NER, kakskeelne sentimentanalüüs NLP jaoks.', DE: 'Semantische Kennzeichnung, NER, bilinguale Sentimentanalyse für NLP.' }),
-                imageUrl: '/src/assets/images/services/service-text.webp'
+                imageUrl: '/images/services/service-text.webp'
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
                 desc: t({ ES: 'Transcripción precisa, diarización de hablantes y etiquetado fonético para modelos de voz.', EN: 'Accurate transcription, speaker diarization, and phonetic labeling for voice models.', ET: 'Täpne transkriptsioon ja foneetiline märgistamine häälemudelitele.', DE: 'Genaue Transkription und phonetische Kennzeichnung für Sprachmodelle.' }),
-                imageUrl: '/src/assets/images/services/service-audio.webp'
+                imageUrl: '/images/services/service-audio.webp'
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
                 desc: t({ ES: 'Etiquetado de objetos, seguimiento de cajas delimitadoras y reconocimiento de acciones espaciales.', EN: 'Object labeling, bounding box tracking, and spatial action recognition.', ET: 'Objektide märgistamine ja ruumiline tegevuse tuvastamine.', DE: 'Objektkennzeichnung und räumliche Aktionserkennung.' }),
-                imageUrl: '/src/assets/images/services/service-video.webp'
+                imageUrl: '/images/services/service-video.webp'
               },
               {
                 icon: <LayoutDashboard size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Clasificación de Imágenes', EN: 'Image Classification', ET: 'Piltide klassifitseerimine', DE: 'Bildklassifizierung' }),
                 desc: t({ ES: 'Segmentación semántica, polígonos, puntos clave (keypoints) para visión por computadora.', EN: 'Semantic segmentation, polygons, keypoints for computer vision.', ET: 'Semantiline segmenteerimine ja võtmepunktid arvutinägemise jaoks.', DE: 'Semantische Segmentierung und Keypoints für Computer Vision.' }),
-                imageUrl: '/src/assets/images/services/service-image.webp'
+                imageUrl: '/images/services/service-image.webp'
               },
               {
                 icon: <Languages size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'RLHF Bilingüe', EN: 'Bilingual RLHF', ET: 'Kakskeelne RLHF', DE: 'Bilinguales RLHF' }),
                 desc: t({ ES: 'Reinforcement Learning from Human Feedback con especialistas nativos en ES y EN.', EN: 'Reinforcement Learning from Human Feedback with native specialists in ES and EN.', ET: 'Stiimulõpe inimeste tagasisidest (RLHF) kohalike spetsialistidega.', DE: 'Reinforcement Learning from Human Feedback mit muttersprachlichen Spezialisten.' }),
-                imageUrl: '/src/assets/images/services/service-rlhf.webp'
+                imageUrl: '/images/services/service-rlhf.webp'
               },
               {
                 icon: <ShieldCheck size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Moderación de Contenido', EN: 'Content Moderation', ET: 'Sisu modereerimine', DE: 'Inhaltsmoderation' }),
                 desc: t({ ES: 'Revisión y etiquetado de contenido sensible con políticas de seguridad y confianza.', EN: 'Review and labeling of sensitive content with trust and safety policies.', ET: 'Tundliku sisu ülevaatamine ja märgistamine usalduspoliitikaga.', DE: 'Überprüfung und Kennzeichnung sensibler Inhalte mit Sicherheitsrichtlinien.' }),
-                imageUrl: '/src/assets/images/services/service-moderation.webp'
+                imageUrl: '/images/services/service-moderation.webp'
               }
             ].map((srv, idx) => (
               <motion.div

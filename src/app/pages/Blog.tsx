@@ -133,7 +133,7 @@ export const Blog = () => {
       date: 'Jul 22, 2025',
       category: t({ ES: 'Industria', EN: 'Industry', ET: 'Tööstus', DE: 'Industrie' }),
       excerpt: t({ ES: 'Casos de uso reales de cómo el etiquetado preciso de videos mejora la seguridad en cadenas de suministro.', EN: 'Real use cases of how accurate video labeling improves safety in supply chains.', ET: 'Reaalsed kasutusjuhtumid selle kohta, kuidas täpne videomärgistus parandab tarneahelate ohutust.', DE: 'Reale Anwendungsfälle, wie eine genaue Videokennzeichnung die Sicherheit in Lieferketten verbessert.' }),
-      imageUrl: '/src/assets/images/services/service-image.webp',
+      imageUrl: '/images/services/service-image.webp',
     }
   ];
 

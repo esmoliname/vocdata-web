@@ -41,13 +41,13 @@ export const About = () => {
     {
       name: 'Carlos Chacón',
       role: t({ ES: 'CEO', EN: 'CEO', ET: 'Tegevjuht (CEO)', DE: 'CEO' }),
-      imageUrl: '/src/assets/images/team/carlos-chacon.jpeg',
+      imageUrl: '/images/team/carlos-chacon.jpeg',
       initials: 'CC'
     },
     {
       name: 'Juan José Ramírez Chaves',
       role: t({ ES: 'Co-fundador', EN: 'Co-founder', ET: 'Kaasasutaja', DE: 'Mitbegründer' }),
-      imageUrl: '/src/assets/images/team/juan-ramirez.jpeg',
+      imageUrl: '/images/team/juan-ramirez.jpeg',
       initials: 'JR'
     }
   ];
