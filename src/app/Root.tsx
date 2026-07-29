@@ -7,7 +7,7 @@ import { LangProvider } from './context/LangContext';
 export const Root = () => {
   return (
     <LangProvider>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Header />
         <main className="flex-grow">
           <Outlet />

@@ -5,13 +5,13 @@ import { Twitter, Linkedin, Github } from 'lucide-react';
 
 export const Footer = () => {
   const { t } = useLang();
-  
+
   return (
     <footer className="bg-brand-primary text-white py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-10 lg:px-[120px]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-             <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
                 <span className="text-brand-primary font-bold text-xl leading-none">V</span>
               </div>
@@ -26,7 +26,7 @@ export const Footer = () => {
               <a href="#" className="hover:text-brand-secondary transition-colors"><Github size={20} /></a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold text-lg mb-4">{t('Compañía', 'Company')}</h4>
             <ul className="flex flex-col gap-2 text-gray-300 text-sm">
@@ -36,7 +36,7 @@ export const Footer = () => {
               <li><NavLink to="/contact" className="hover:text-white transition-colors">{t('Contacto', 'Contact')}</NavLink></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold text-lg mb-4">{t('Servicios', 'Services')}</h4>
             <ul className="flex flex-col gap-2 text-gray-300 text-sm">
@@ -46,7 +46,7 @@ export const Footer = () => {
               <li><NavLink to="/services" className="hover:text-white transition-colors">{t('RLHF', 'RLHF')}</NavLink></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold text-lg mb-4">{t('Contacto', 'Contact')}</h4>
             <ul className="flex flex-col gap-2 text-gray-300 text-sm">
@@ -56,7 +56,7 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Vocdata.ai. {t('Todos los derechos reservados.', 'All rights reserved.')}</p>
           <div className="flex gap-4 mt-4 md:mt-0">

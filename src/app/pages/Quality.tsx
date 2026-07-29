@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useLang } from '../context/LangContext';
 import { motion } from 'motion/react';
 import { Target, Clock, Activity, Zap } from 'lucide-react';
@@ -18,14 +18,14 @@ export const Quality = () => {
         {/* Overlay to soften the particles so text is readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1121]/80 via-transparent to-[#1E293B]/90 pointer-events-none z-0"></div>
 
-        <div className="container mx-auto px-4 md:px-10 lg:px-[120px] relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
           <div className="text-center mb-16 max-w-4xl mx-auto">
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-[32px] md:text-[40px] font-semibold text-[#FFFFFF] mb-6 [text-shadow:0_2px_15px_rgba(0,0,0,0.4)]"
             >
-              {t({ ES: 'Calidad y Tecnología', EN: 'Quality & Technology', ET: 'Kvaliteet ja tehnoloogia', DE: 'Qualität und Technologie' })}
+              {t({ ES: 'Calidad y TecnologÃ­a', EN: 'Quality & Technology', ET: 'Kvaliteet ja tehnoloogia', DE: 'QualitÃ¤t und Technologie' })}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -34,10 +34,10 @@ export const Quality = () => {
               className="text-[16px] md:text-[18px] text-[#CBD5E1] font-normal leading-[1.6]"
             >
               {t({
-                ES: 'Nuestra metodología rigurosa y herramientas avanzadas garantizan la máxima precisión para tus modelos.',
+                ES: 'Nuestra metodologÃ­a rigurosa y herramientas avanzadas garantizan la mÃ¡xima precisiÃ³n para tus modelos.',
                 EN: 'Our rigorous methodology and advanced tools guarantee maximum accuracy for your models.',
-                ET: 'Meie range metoodika tagab teie mudelitele maksimaalse täpsuse.',
-                DE: 'Unsere rigorose Methodik garantiert maximale Genauigkeit für Ihre Modelle.'
+                ET: 'Meie range metoodika tagab teie mudelitele maksimaalse tÃ¤psuse.',
+                DE: 'Unsere rigorose Methodik garantiert maximale Genauigkeit fÃ¼r Ihre Modelle.'
               })}
             </motion.p>
           </div>
@@ -53,16 +53,16 @@ export const Quality = () => {
               className="flex flex-col space-y-8"
             >
               <h3 className="text-[24px] md:text-[28px] font-semibold text-[#FFFFFF] mb-2">
-                {t({ ES: 'Nuestro Proceso de Anotación', EN: 'Our Annotation Process', ET: 'Meie annoteerimisprotsess', DE: 'Unser Annotationsprozess' })}
+                {t({ ES: 'Nuestro Proceso de AnotaciÃ³n', EN: 'Our Annotation Process', ET: 'Meie annoteerimisprotsess', DE: 'Unser Annotationsprozess' })}
               </h3>
               
               <div className="space-y-6">
                 {[
-                  { step: '1', title: t({ ES: 'Ingesta', EN: 'Ingestion', ET: 'Allalaadimine', DE: 'Aufnahme' }), desc: t({ ES: 'Carga segura y anonimización de datos crudos.', EN: 'Secure upload and anonymization of raw data.', ET: 'Algandmete turvaline üleslaadimine.', DE: 'Sicheres Hochladen und Anonymisieren von Rohdaten.' }) },
-                  { step: '2', title: t({ ES: 'Anotación', EN: 'Annotation', ET: 'Annoteerimine', DE: 'Annotation' }), desc: t({ ES: 'Etiquetado inicial por especialistas nativos.', EN: 'Initial labeling by native specialists.', ET: 'Esialgne märgistamine kohalike spetsialistide poolt.', DE: 'Initiale Kennzeichnung durch Muttersprachler.' }) },
-                  { step: '3', title: t({ ES: 'Revisión QA', EN: 'QA Review', ET: 'Kvaliteedikontroll', DE: 'QA-Überprüfung' }), desc: t({ ES: 'Validación por pares asegurando un alto IAA.', EN: 'Peer validation ensuring high IAA.', ET: 'Kolleegide valideerimine, tagades kõrge IAA.', DE: 'Peer-Validierung, die ein hohes IAA gewährleistet.' }) },
-                  { step: '4', title: t({ ES: 'Auditoría', EN: 'Audit', ET: 'Audit', DE: 'Audit' }), desc: t({ ES: 'Aprobación final por Lingüista Senior.', EN: 'Final approval by Senior Linguist.', ET: 'Vanemkeeleteadlase lõplik heakskiit.', DE: 'Endgültige Genehmigung durch einen Senior-Linguisten.' }) },
-                  { step: '5', title: t({ ES: 'Entrega', EN: 'Delivery', ET: 'Kohaletoimetamine', DE: 'Lieferung' }), desc: t({ ES: 'Exportación en el formato óptimo (JSON, XML).', EN: 'Export in optimal format (JSON, XML).', ET: 'Eksport optimaalses vormingus.', DE: 'Export im optimalen Format.' }) },
+                  { step: '1', title: t({ ES: 'Ingesta', EN: 'Ingestion', ET: 'Allalaadimine', DE: 'Aufnahme' }), desc: t({ ES: 'Carga segura y anonimizaciÃ³n de datos crudos.', EN: 'Secure upload and anonymization of raw data.', ET: 'Algandmete turvaline Ã¼leslaadimine.', DE: 'Sicheres Hochladen und Anonymisieren von Rohdaten.' }) },
+                  { step: '2', title: t({ ES: 'AnotaciÃ³n', EN: 'Annotation', ET: 'Annoteerimine', DE: 'Annotation' }), desc: t({ ES: 'Etiquetado inicial por especialistas nativos.', EN: 'Initial labeling by native specialists.', ET: 'Esialgne mÃ¤rgistamine kohalike spetsialistide poolt.', DE: 'Initiale Kennzeichnung durch Muttersprachler.' }) },
+                  { step: '3', title: t({ ES: 'RevisiÃ³n QA', EN: 'QA Review', ET: 'Kvaliteedikontroll', DE: 'QA-ÃœberprÃ¼fung' }), desc: t({ ES: 'ValidaciÃ³n por pares asegurando un alto IAA.', EN: 'Peer validation ensuring high IAA.', ET: 'Kolleegide valideerimine, tagades kÃµrge IAA.', DE: 'Peer-Validierung, die ein hohes IAA gewÃ¤hrleistet.' }) },
+                  { step: '4', title: t({ ES: 'AuditorÃ­a', EN: 'Audit', ET: 'Audit', DE: 'Audit' }), desc: t({ ES: 'AprobaciÃ³n final por LingÃ¼ista Senior.', EN: 'Final approval by Senior Linguist.', ET: 'Vanemkeeleteadlase lÃµplik heakskiit.', DE: 'EndgÃ¼ltige Genehmigung durch einen Senior-Linguisten.' }) },
+                  { step: '5', title: t({ ES: 'Entrega', EN: 'Delivery', ET: 'Kohaletoimetamine', DE: 'Lieferung' }), desc: t({ ES: 'ExportaciÃ³n en el formato Ã³ptimo (JSON, XML).', EN: 'Export in optimal format (JSON, XML).', ET: 'Eksport optimaalses vormingus.', DE: 'Export im optimalen Format.' }) },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-5 group bg-slate-900/40 backdrop-blur-xl border border-white/10 p-5 rounded-2xl hover:border-blue-500/30 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all duration-300" style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent)' }}>
                     <div className="w-12 h-12 shrink-0 rounded-full bg-[#1E293B]/50 backdrop-blur-sm border-2 border-[#4A90D9] flex items-center justify-center font-bold text-[#4A90D9] group-hover:bg-[#4A90D9] group-hover:text-[#FFFFFF] transition-colors duration-300 shadow-[0_0_10px_rgba(74,144,217,0.2)]">
@@ -87,7 +87,7 @@ export const Quality = () => {
             >
               {/* Precision Bar Chart */}
               <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[16px] p-8 shadow-2xl hover:border-blue-500/30 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all duration-300" style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent)' }}>
-                <h4 className="text-[18px] font-semibold text-[#FFFFFF] mb-8 text-center">{t({ ES: 'Precisión Histórica', EN: 'Historical Accuracy', ET: 'Ajalooline täpsus', DE: 'Historische Genauigkeit' })}</h4>
+                <h4 className="text-[18px] font-semibold text-[#FFFFFF] mb-8 text-center">{t({ ES: 'PrecisiÃ³n HistÃ³rica', EN: 'Historical Accuracy', ET: 'Ajalooline tÃ¤psus', DE: 'Historische Genauigkeit' })}</h4>
                 <div className="flex items-end justify-center h-[200px] gap-8 border-b border-[#334155] pb-2 relative">
                   {/* Background grid lines */}
                   <div className="absolute w-full h-[50px] border-b border-[#334155]/30 bottom-[50px]"></div>
@@ -138,10 +138,10 @@ export const Quality = () => {
               {/* Metrics 2x2 Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: '99.8%', label: t({ ES: 'Precisión', EN: 'Accuracy', ET: 'Täpsus', DE: 'Genauigkeit' }), icon: <Target size={20}/> },
+                  { value: '99.8%', label: t({ ES: 'PrecisiÃ³n', EN: 'Accuracy', ET: 'TÃ¤psus', DE: 'Genauigkeit' }), icon: <Target size={20}/> },
                   { value: '0.92', label: t({ ES: 'IAA', EN: 'IAA', ET: 'IAA', DE: 'IAA' }), icon: <Activity size={20}/> },
-                  { value: '>5k', label: t({ ES: 'Throughput /día', EN: 'Daily Throughput', ET: 'Päevane läbilaskevõime', DE: 'Täglicher Durchsatz' }), icon: <Zap size={20}/> },
-                  { value: '24h', label: t({ ES: 'Turnaround', EN: 'Turnaround', ET: 'Töötlemisaeg', DE: 'Bearbeitungszeit' }), icon: <Clock size={20}/> },
+                  { value: '>5k', label: t({ ES: 'Throughput /dÃ­a', EN: 'Daily Throughput', ET: 'PÃ¤evane lÃ¤bilaskevÃµime', DE: 'TÃ¤glicher Durchsatz' }), icon: <Zap size={20}/> },
+                  { value: '24h', label: t({ ES: 'Turnaround', EN: 'Turnaround', ET: 'TÃ¶Ã¶tlemisaeg', DE: 'Bearbeitungszeit' }), icon: <Clock size={20}/> },
                 ].map((metric, idx) => (
                   <motion.div 
                     key={idx}

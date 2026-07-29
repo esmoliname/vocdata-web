@@ -7,6 +7,7 @@ import { Quality } from './pages/Quality';
 import { About } from './pages/About';
 import { Blog } from './pages/Blog';
 import { Contact } from './pages/Contact';
+import { Impact } from './pages/Impact';
 
 // Simple 404 component
 const NotFound = () => (
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       { path: "about", Component: About },
       { path: "blog", Component: Blog },
       { path: "contact", Component: Contact },
+      { path: "impact", Component: Impact },
       { path: "*", Component: NotFound },
     ],
   },

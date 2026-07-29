@@ -42,7 +42,7 @@ export const Contact = () => {
       'fX-RfT6OE3vgvp2UA'
     )
       .then((response) => {
-        console.log('EMAILJS ÉXITO:', response.status, response.text);
+        console.log('EMAILJS Ã‰XITO:', response.status, response.text);
         setStatus('success');
         setFormData({ name: '', email: '', company: '', message: '' });
         setTimeout(() => setStatus('idle'), 5000);
@@ -50,7 +50,7 @@ export const Contact = () => {
       .catch((err) => {
         console.error('EMAILJS ERROR 400 DETALLADO:', err);
         setStatus('error');
-        setErrorMessage(err?.text || err?.message || 'Error en las credenciales o parámetros de EmailJS');
+        setErrorMessage(err?.text || err?.message || 'Error en las credenciales o parÃ¡metros de EmailJS');
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -118,18 +118,18 @@ export const Contact = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
 
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-[48px] font-bold mb-4 text-[#FFFFFF] [text-shadow:0_2px_10px_rgba(0,0,0,0.4)]">
-            {t({ ES: 'Hablemos de tus Datos', EN: 'Let\'s Talk About Your Data', ET: 'Räägime teie andmetest', DE: 'Lassen Sie uns über Ihre Daten sprechen' })}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#FFFFFF] [text-shadow:0_2px_10px_rgba(0,0,0,0.4)]">
+            {t({ ES: 'Hablemos de tus Datos', EN: 'Let\'s Talk About Your Data', ET: 'RÃ¤Ã¤gime teie andmetest', DE: 'Lassen Sie uns Ã¼ber Ihre Daten sprechen' })}
           </h2>
           <p className="text-[20px] text-[#CBD5E1] max-w-2xl mx-auto font-normal leading-[1.6] [text-shadow:0_1px_5px_rgba(0,0,0,0.2)]">
             {t({
-              ES: 'Estamos listos para escalar tus modelos de IA con precisión bilingüe.',
+              ES: 'Estamos listos para escalar tus modelos de IA con precisiÃ³n bilingÃ¼e.',
               EN: 'We are ready to scale your AI models with bilingual accuracy.',
-              ET: 'Oleme valmis teie tehisintellekti mudeleid kakskeelse täpsusega skaleerima.',
+              ET: 'Oleme valmis teie tehisintellekti mudeleid kakskeelse tÃ¤psusega skaleerima.',
               DE: 'Wir sind bereit, Ihre KI-Modelle mit bilingualer Genauigkeit zu skalieren.'
             })}
           </p>
@@ -149,7 +149,7 @@ export const Contact = () => {
                   className="mb-6 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl p-4 flex items-center gap-3 text-sm backdrop-blur-md"
                 >
                   <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
-                  <span>{t({ ES: '¡Mensaje Enviado con Éxito!', EN: 'Message Sent Successfully!', ET: 'Sõnum saadetud edukalt!', DE: 'Nachricht erfolgreich gesendet!' })}</span>
+                  <span>{t({ ES: 'Â¡Mensaje Enviado con Ã‰xito!', EN: 'Message Sent Successfully!', ET: 'SÃµnum saadetud edukalt!', DE: 'Nachricht erfolgreich gesendet!' })}</span>
                 </motion.div>
               )}
               {status === 'error' && (
@@ -167,19 +167,19 @@ export const Contact = () => {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Nombre completo', EN: 'Full Name', ET: 'Täisnimi', DE: 'Vollständiger Name' })}</label>
+                  <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Nombre completo', EN: 'Full Name', ET: 'TÃ¤isnimi', DE: 'VollstÃ¤ndiger Name' })}</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
-                    placeholder={t({ ES: 'Ej. Nombre completo', EN: 'E.g. Full name', ET: 'Nt. Täisnimi', DE: 'Z.B. Vollständiger Name' })}
+                    placeholder={t({ ES: 'Ej. Nombre completo', EN: 'E.g. Full name', ET: 'Nt. TÃ¤isnimi', DE: 'Z.B. VollstÃ¤ndiger Name' })}
                     disabled={isSubmitting}
                   />
                 </div>
                 <div>
-                  <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Correo corporativo', EN: 'Work Email', ET: 'Töö e-post', DE: 'Geschäftliche E-Mail' })}</label>
+                  <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Correo corporativo', EN: 'Work Email', ET: 'TÃ¶Ã¶ e-post', DE: 'GeschÃ¤ftliche E-Mail' })}</label>
                   <input
                     type="email"
                     required
@@ -192,24 +192,24 @@ export const Contact = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Empresa', EN: 'Company', ET: 'Ettevõte', DE: 'Unternehmen' })}</label>
+                <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Empresa', EN: 'Company', ET: 'EttevÃµte', DE: 'Unternehmen' })}</label>
                 <input
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
-                  placeholder={t({ ES: 'Nombre de tu empresa', EN: 'Your company name', ET: 'Teie ettevõtte nimi', DE: 'Ihr Firmenname' })}
+                  placeholder={t({ ES: 'Nombre de tu empresa', EN: 'Your company name', ET: 'Teie ettevÃµtte nimi', DE: 'Ihr Firmenname' })}
                   disabled={isSubmitting}
                 />
               </div>
               <div>
-                <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Mensaje o detalles del proyecto', EN: 'Message or project details', ET: 'Sõnum või projekti üksikasjad', DE: 'Nachricht oder Projektdetails' })}</label>
+                <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Mensaje o detalles del proyecto', EN: 'Message or project details', ET: 'SÃµnum vÃµi projekti Ã¼ksikasjad', DE: 'Nachricht oder Projektdetails' })}</label>
                 <textarea
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full p-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all min-h-[150px] resize-y disabled:opacity-50"
-                  placeholder={t({ ES: 'Cuéntanos sobre tus necesidades de anotación...', EN: 'Tell us about your annotation needs...', ET: 'Rääkige meile oma annoteerimisvajadustest...', DE: 'Erzählen Sie uns von Ihren Annotationsbedürfnissen...' })}
+                  placeholder={t({ ES: 'CuÃ©ntanos sobre tus necesidades de anotaciÃ³n...', EN: 'Tell us about your annotation needs...', ET: 'RÃ¤Ã¤kige meile oma annoteerimisvajadustest...', DE: 'ErzÃ¤hlen Sie uns von Ihren AnnotationsbedÃ¼rfnissen...' })}
                   disabled={isSubmitting}
                 ></textarea>
               </div>
@@ -220,9 +220,9 @@ export const Contact = () => {
               >
                 {isSubmitting
                   ? t({ ES: 'Enviando...', EN: 'Sending...', ET: 'Saatmine...', DE: 'Senden...' })
-                  : t({ ES: 'Enviar Mensaje', EN: 'Send Message', ET: 'Saada Sõnum', DE: 'Nachricht senden' })
+                  : t({ ES: 'Enviar Mensaje', EN: 'Send Message', ET: 'Saada SÃµnum', DE: 'Nachricht senden' })
                 }
-                {!isSubmitting && <span className="transform group-hover:translate-x-1 transition-transform">→</span>}
+                {!isSubmitting && <span className="transform group-hover:translate-x-1 transition-transform">â†’</span>}
               </button>
             </form>
           </div>
@@ -244,7 +244,7 @@ export const Contact = () => {
             <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-6 border border-white/10 flex flex-col gap-2 hover:bg-slate-900/60 hover:border-white/20 transition-all shadow-lg">
               <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
                 <Phone className="w-5 h-5 text-[#4A90D9]" />
-                {t({ ES: 'Llámanos', EN: 'Call us', ET: 'Helista meile', DE: 'Rufen Sie uns an' })}
+                {t({ ES: 'LlÃ¡manos', EN: 'Call us', ET: 'Helista meile', DE: 'Rufen Sie uns an' })}
               </h4>
               <div className="space-y-1">
                 <a href="tel:+50687587740" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
@@ -256,7 +256,7 @@ export const Contact = () => {
             <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-6 border border-white/10 flex flex-col gap-2 hover:bg-slate-900/60 hover:border-white/20 transition-all shadow-lg">
               <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-[#2ECC71]" />
-                {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'Büros' })}
+                {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'BÃ¼ros' })}
               </h4>
               <div className="space-y-1">
                 <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Tallinn, Estonia</p>
@@ -305,16 +305,16 @@ export const Contact = () => {
                   {t({ ES: 'Soporte Vocdata.ai', EN: 'Vocdata.ai Support', ET: 'Vocdata.ai tugi', DE: 'Vocdata.ai Support' })}
                 </h4>
                 <p className="text-sm text-slate-300 mt-1">
-                  {t({ ES: '¿En qué podemos ayudarte hoy?', EN: 'How can we help you today?', ET: 'Kuidas saame teid täna aidata?', DE: 'Wie können wir Ihnen heute helfen?' })}
+                  {t({ ES: 'Â¿En quÃ© podemos ayudarte hoy?', EN: 'How can we help you today?', ET: 'Kuidas saame teid tÃ¤na aidata?', DE: 'Wie kÃ¶nnen wir Ihnen heute helfen?' })}
                 </p>
               </div>
 
               {/* Options */}
               <div className="flex flex-col p-2 gap-1">
                 {[
-                  t({ ES: 'Me interesa cotizar un proyecto de anotación de datos.', EN: 'I am interested in quoting a data annotation project.', ET: 'Olen huvitatud andmete annoteerimise projekti hinnapakkumisest.', DE: 'Ich bin an einem Angebot für ein Datenannotationsprojekt interessiert.' }),
-                  t({ ES: 'Tengo dudas sobre los idiomas o la precisión bilingüe.', EN: 'I have questions about languages or bilingual accuracy.', ET: 'Mul on küsimusi keelte või kakskeelse täpsuse kohta.', DE: 'Ich habe Fragen zu Sprachen oder bilingualer Genauigkeit.' }),
-                  t({ ES: 'Soporte técnico / Consulta general.', EN: 'Technical support / General inquiry.', ET: 'Tehniline tugi / Üldine päring.', DE: 'Technischer Support / Allgemeine Anfrage.' })
+                  t({ ES: 'Me interesa cotizar un proyecto de anotaciÃ³n de datos.', EN: 'I am interested in quoting a data annotation project.', ET: 'Olen huvitatud andmete annoteerimise projekti hinnapakkumisest.', DE: 'Ich bin an einem Angebot fÃ¼r ein Datenannotationsprojekt interessiert.' }),
+                  t({ ES: 'Tengo dudas sobre los idiomas o la precisiÃ³n bilingÃ¼e.', EN: 'I have questions about languages or bilingual accuracy.', ET: 'Mul on kÃ¼simusi keelte vÃµi kakskeelse tÃ¤psuse kohta.', DE: 'Ich habe Fragen zu Sprachen oder bilingualer Genauigkeit.' }),
+                  t({ ES: 'Soporte tÃ©cnico / Consulta general.', EN: 'Technical support / General inquiry.', ET: 'Tehniline tugi / Ãœldine pÃ¤ring.', DE: 'Technischer Support / Allgemeine Anfrage.' })
                 ].map((msg, idx) => (
                   <a
                     key={idx}
@@ -338,7 +338,7 @@ export const Contact = () => {
                     value={customMessage}
                     onChange={(e) => setCustomMessage(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleCustomMessageSend()}
-                    placeholder={t({ ES: 'Escribe un mensaje personalizado...', EN: 'Type a custom message...', ET: 'Kirjutage kohandatud sõnum...', DE: 'Schreiben Sie eine benutzerdefinierte Nachricht...' })}
+                    placeholder={t({ ES: 'Escribe un mensaje personalizado...', EN: 'Type a custom message...', ET: 'Kirjutage kohandatud sÃµnum...', DE: 'Schreiben Sie eine benutzerdefinierte Nachricht...' })}
                     className="flex-1 bg-slate-900/50 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#25D366]/50 focus:ring-1 focus:ring-[#25D366]/50 transition-all"
                   />
                   <button

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useLang } from '../context/LangContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { Target, Zap, Shield, GraduationCap } from 'lucide-react';
@@ -39,14 +39,14 @@ export const About = () => {
 
   const team: TeamMember[] = [
     {
-      name: 'Carlos Chacón',
+      name: 'Carlos ChacÃ³n',
       role: t({ ES: 'CEO', EN: 'CEO', ET: 'Tegevjuht (CEO)', DE: 'CEO' }),
       imageUrl: '/images/team/carlos-chacon.jpeg',
       initials: 'CC'
     },
     {
-      name: 'Juan José Ramírez Chaves',
-      role: t({ ES: 'Co-fundador', EN: 'Co-founder', ET: 'Kaasasutaja', DE: 'Mitbegründer' }),
+      name: 'Juan JosÃ© RamÃ­rez Chaves',
+      role: t({ ES: 'Co-fundador', EN: 'Co-founder', ET: 'Kaasasutaja', DE: 'MitbegrÃ¼nder' }),
       imageUrl: '/images/team/juan-ramirez.jpeg',
       initials: 'JR'
     }
@@ -66,14 +66,14 @@ export const About = () => {
           />
         </div>
 
-        <div className="container mx-auto px-4 md:px-10 lg:px-[120px] relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-[32px] md:text-[40px] font-semibold text-[#FFFFFF] mb-6 [text-shadow:0_2px_15px_rgba(0,0,0,0.4)]"
+              className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#FFFFFF] mb-6 [text-shadow:0_2px_15px_rgba(0,0,0,0.4)]"
             >
-              {t({ ES: 'Sobre Nosotros', EN: 'About Us', ET: 'Meist', DE: 'Über uns' })}
+              {t({ ES: 'Sobre Nosotros', EN: 'About Us', ET: 'Meist', DE: 'Ãœber uns' })}
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -82,10 +82,10 @@ export const About = () => {
               className="text-[16px] md:text-[18px] text-[#CBD5E1] font-normal leading-[1.6]"
             >
               {t({
-                ES: 'Somos un equipo diverso unido por la pasión de crear los datos más precisos para el futuro de la IA. Nuestro compromiso es cerrar la brecha cultural y de idioma en los modelos tecnológicos globales.',
+                ES: 'Somos un equipo diverso unido por la pasiÃ³n de crear los datos mÃ¡s precisos para el futuro de la IA. Nuestro compromiso es cerrar la brecha cultural y de idioma en los modelos tecnolÃ³gicos globales.',
                 EN: 'We are a diverse team united by the passion to create the most accurate data for the future of AI. Our commitment is to close the cultural and language gap in global technological models.',
-                ET: 'Oleme mitmekesine meeskond, keda ühendab kirg luua tehisintellekti tuleviku jaoks kõige täpsemaid andmeid.',
-                DE: 'Wir sind ein diverses Team, vereint durch die Leidenschaft, die genauesten Daten für die Zukunft der KI zu erstellen.'
+                ET: 'Oleme mitmekesine meeskond, keda Ã¼hendab kirg luua tehisintellekti tuleviku jaoks kÃµige tÃ¤psemaid andmeid.',
+                DE: 'Wir sind ein diverses Team, vereint durch die Leidenschaft, die genauesten Daten fÃ¼r die Zukunft der KI zu erstellen.'
               })}
             </motion.p>
           </div>
@@ -104,13 +104,13 @@ export const About = () => {
               <div className="w-14 h-14 rounded-full bg-[#0F172A] flex items-center justify-center mb-6 border border-[#4A90D9]">
                 <Target className="text-[#4A90D9] w-7 h-7" />
               </div>
-              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-4">{t({ ES: 'Misión', EN: 'Mission', ET: 'Missioon', DE: 'Mission' })}</h3>
+              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-4">{t({ ES: 'MisiÃ³n', EN: 'Mission', ET: 'Missioon', DE: 'Mission' })}</h3>
               <p className="text-[16px] text-[#CBD5E1] leading-[1.6]">
                 {t({
-                  ES: 'Acelerar el desarrollo global de la IA mediante la entrega de anotaciones de datos bilingües de alto rendimiento y absoluta claridad. Combinamos flujos de trabajo operativos optimizados con una aguda precisión lingüística para eliminar el ruido cultural y las ambigüedades del idioma, transformando conjuntos de datos multilingües brutos en datos de entrenamiento estructurados y listos para producción con la máxima velocidad y claridad.',
+                  ES: 'Acelerar el desarrollo global de la IA mediante la entrega de anotaciones de datos bilingÃ¼es de alto rendimiento y absoluta claridad. Combinamos flujos de trabajo operativos optimizados con una aguda precisiÃ³n lingÃ¼Ã­stica para eliminar el ruido cultural y las ambigÃ¼edades del idioma, transformando conjuntos de datos multilingÃ¼es brutos en datos de entrenamiento estructurados y listos para producciÃ³n con la mÃ¡xima velocidad y claridad.',
                   EN: 'To accelerate global AI development by delivering high-throughput, crystal-clear bilingual data annotation. We combine optimized operational workflows with sharp linguistic precision to eliminate cultural noise and language ambiguities, transforming raw multi-language datasets into structured, production-ready training data with maximum speed and clarity.',
-                  ET: 'Kiirendada ülemaailmset tehisintellekti arengut, pakkudes suure läbilaskevõimega ja kristallselget kakskeelset andmete annoteerimist.',
-                  DE: 'Die globale KI-Entwicklung zu beschleunigen, indem wir hochdurchsatzfähige, kristallklare bilinguale Datenannotation liefern.'
+                  ET: 'Kiirendada Ã¼lemaailmset tehisintellekti arengut, pakkudes suure lÃ¤bilaskevÃµimega ja kristallselget kakskeelset andmete annoteerimist.',
+                  DE: 'Die globale KI-Entwicklung zu beschleunigen, indem wir hochdurchsatzfÃ¤hige, kristallklare bilinguale Datenannotation liefern.'
                 })}
               </p>
             </motion.div>
@@ -126,13 +126,13 @@ export const About = () => {
               <div className="w-14 h-14 rounded-full bg-[#0F172A] flex items-center justify-center mb-6 border border-[#4A90D9]">
                 <Zap className="text-[#4A90D9] w-7 h-7" />
               </div>
-              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-4">{t({ ES: 'Visión', EN: 'Vision', ET: 'Visioon', DE: 'Vision' })}</h3>
+              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-4">{t({ ES: 'VisiÃ³n', EN: 'Vision', ET: 'Visioon', DE: 'Vision' })}</h3>
               <p className="text-[16px] text-[#CBD5E1] leading-[1.6]">
                 {t({
-                  ES: 'Ser la startup de motor de datos más eficiente del mundo para la IA multilingüe, reconocida por establecer el estándar de oro en eficiencia operativa y absoluta claridad lingüística, permitiendo que los modelos de aprendizaje automático se comuniquen y entiendan los lenguajes humanos sin fallas.',
-                  EN: 'To be the world’s most streamlined data-engine startup for multilingual AI, recognized for setting the gold standard in operational efficiency and linguistic absolute clarity, enabling machine learning models to communicate and understand human languages flawlessly.',
-                  ET: 'Olla maailma kõige tõhusam andmemootori idufirma mitmekeelse tehisintellekti jaoks.',
-                  DE: 'Das effizienteste Daten-Engine-Startup der Welt für mehrsprachige KI zu sein.'
+                  ES: 'Ser la startup de motor de datos mÃ¡s eficiente del mundo para la IA multilingÃ¼e, reconocida por establecer el estÃ¡ndar de oro en eficiencia operativa y absoluta claridad lingÃ¼Ã­stica, permitiendo que los modelos de aprendizaje automÃ¡tico se comuniquen y entiendan los lenguajes humanos sin fallas.',
+                  EN: 'To be the worldâ€™s most streamlined data-engine startup for multilingual AI, recognized for setting the gold standard in operational efficiency and linguistic absolute clarity, enabling machine learning models to communicate and understand human languages flawlessly.',
+                  ET: 'Olla maailma kÃµige tÃµhusam andmemootori idufirma mitmekeelse tehisintellekti jaoks.',
+                  DE: 'Das effizienteste Daten-Engine-Startup der Welt fÃ¼r mehrsprachige KI zu sein.'
                 })}
               </p>
             </motion.div>
@@ -148,12 +148,12 @@ export const About = () => {
               <div className="w-14 h-14 rounded-full bg-[#0F172A] flex items-center justify-center mb-6 border border-[#4A90D9]">
                 <Shield className="text-[#4A90D9] w-7 h-7" />
               </div>
-              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-6">{t({ ES: 'Valores', EN: 'Values', ET: 'Väärtused', DE: 'Werte' })}</h3>
+              <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-6">{t({ ES: 'Valores', EN: 'Values', ET: 'VÃ¤Ã¤rtused', DE: 'Werte' })}</h3>
               <ul className="space-y-4">
                 {[
-                  { icon: <Target className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'Precisión lingüística', EN: 'Linguistic Precision', ET: 'Keeleline täpsus', DE: 'Sprachliche Präzision' }) },
-                  { icon: <Zap className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'Velocidad operativa', EN: 'Operational Velocity', ET: 'Töökiirus', DE: 'Operative Geschwindigkeit' }) },
-                  { icon: <Shield className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'Absoluta integridad de datos', EN: 'Absolute Data Integrity', ET: 'Täielik andmeterviklikkus', DE: 'Absolute Datenintegrität' }) },
+                  { icon: <Target className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'PrecisiÃ³n lingÃ¼Ã­stica', EN: 'Linguistic Precision', ET: 'Keeleline tÃ¤psus', DE: 'Sprachliche PrÃ¤zision' }) },
+                  { icon: <Zap className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'Velocidad operativa', EN: 'Operational Velocity', ET: 'TÃ¶Ã¶kiirus', DE: 'Operative Geschwindigkeit' }) },
+                  { icon: <Shield className="text-[#2ECC71] w-5 h-5" />, text: t({ ES: 'Absoluta integridad de datos', EN: 'Absolute Data Integrity', ET: 'TÃ¤ielik andmeterviklikkus', DE: 'Absolute DatenintegritÃ¤t' }) },
                 ].map((val, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     {val.icon}
@@ -173,7 +173,7 @@ export const About = () => {
               viewport={{ once: true }}
               className="text-[28px] font-semibold text-[#FFFFFF] mb-12"
             >
-              {t({ ES: 'Nuestro Equipo Directivo', EN: 'Our Leadership Team', ET: 'Meie juhtkond', DE: 'Unser Führungsteam' })}
+              {t({ ES: 'Nuestro Equipo Directivo', EN: 'Our Leadership Team', ET: 'Meie juhtkond', DE: 'Unser FÃ¼hrungsteam' })}
             </motion.h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -218,16 +218,16 @@ export const About = () => {
               {t({
                 ES: 'Responsabilidad Social Corporativa (RSC)',
                 EN: 'Corporate Social Responsibility (CSR)',
-                ET: 'Ettevõtte sotsiaalne vastutus (CSR)',
+                ET: 'EttevÃµtte sotsiaalne vastutus (CSR)',
                 DE: 'Soziale Verantwortung des Unternehmens (CSR)'
               })}
             </h3>
             <p className="text-[18px] text-[#CBD5E1] leading-[1.7] relative z-10">
               {t({
-                ES: 'Empoderando el futuro de la tecnología: Nos comprometemos a destinar un porcentaje de nuestros ingresos anuales para apoyar y patrocinar a la próxima generación de talentos que cursan carreras de TI (Tecnologías de la Información) y ciencias de la computación.',
+                ES: 'Empoderando el futuro de la tecnologÃ­a: Nos comprometemos a destinar un porcentaje de nuestros ingresos anuales para apoyar y patrocinar a la prÃ³xima generaciÃ³n de talentos que cursan carreras de TI (TecnologÃ­as de la InformaciÃ³n) y ciencias de la computaciÃ³n.',
                 EN: 'Empowering the future of technology: We pledge a percentage of our annual revenue to support and sponsor the next generation of talent pursuing IT and computer science careers.',
-                ET: 'Tehnoloogia tuleviku võimestamine: kohustume suunama teatud protsendi oma aastasest tulust järgmise põlvkonna talentide toetamiseks ja sponsoreerimiseks, kes teevad karjääri IT- ja arvutiteadustes.',
-                DE: 'Stärkung der Zukunft der Technologie: Wir verpflichten uns, einen Prozentsatz unseres Jahresumsatzes zur Unterstützung und Förderung der nächsten Generation von Talenten in den Bereichen IT und Informatik bereitzustellen.'
+                ET: 'Tehnoloogia tuleviku vÃµimestamine: kohustume suunama teatud protsendi oma aastasest tulust jÃ¤rgmise pÃµlvkonna talentide toetamiseks ja sponsoreerimiseks, kes teevad karjÃ¤Ã¤ri IT- ja arvutiteadustes.',
+                DE: 'StÃ¤rkung der Zukunft der Technologie: Wir verpflichten uns, einen Prozentsatz unseres Jahresumsatzes zur UnterstÃ¼tzung und FÃ¶rderung der nÃ¤chsten Generation von Talenten in den Bereichen IT und Informatik bereitzustellen.'
               })}
             </p>
           </motion.div>
@@ -251,7 +251,7 @@ export const About = () => {
                 onClick={() => setSelectedMember(null)}
                 className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-black/80 rounded-full flex items-center justify-center text-[#FFFFFF] transition-colors border border-white/20 backdrop-blur-md"
               >
-                ✕
+                âœ•
               </button>
               <div className="w-full aspect-[4/5] sm:aspect-square relative">
                  <TeamCardImage src={selectedMember.imageUrl} alt={selectedMember.name} initials={selectedMember.initials} />

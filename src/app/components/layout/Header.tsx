@@ -34,6 +34,7 @@ export const Header = () => {
     { to: '/about', translations: { ES: 'Sobre Nosotros', EN: 'About Us', ET: 'Meist', DE: 'Über uns' } },
     { to: '/blog', translations: { ES: 'Blog', EN: 'Blog', ET: 'Blogi', DE: 'Blog' } },
     { to: '/contact', translations: { ES: 'Contacto', EN: 'Contact', ET: 'Kontakt', DE: 'Kontakt' } },
+    { to: '/impact', translations: { ES: 'Responsabilidad Social', EN: 'CSR & Social Impact', ET: 'Sotsiaalne Vastutus', DE: 'Soziale Verantwortung' } },
   ];
 
   return (

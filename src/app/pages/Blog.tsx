@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useLang } from '../context/LangContext';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -76,12 +76,12 @@ const BlogCard = ({ post, idx, t }: { post: any, idx: number, t: any }) => {
             {post.excerpt}
           </p>
           <a href="#" className="text-[16px] font-semibold text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors inline-flex items-center gap-2 mt-auto">
-            {t({ ES: 'Leer más', EN: 'Read more', ET: 'Loe edasi', DE: 'Weiterlesen' })}
+            {t({ ES: 'Leer mÃ¡s', EN: 'Read more', ET: 'Loe edasi', DE: 'Weiterlesen' })}
             <motion.span 
               className="inline-block"
               animate={{ x: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-            >→</motion.span>
+            >â†’</motion.span>
           </a>
         </div>
       </motion.article>
@@ -94,45 +94,45 @@ export const Blog = () => {
 
   const posts = [
     {
-      title: t({ ES: 'El impacto del sesgo cultural en los LLMs', EN: 'The impact of cultural bias in LLMs', ET: 'Kultuurilise eelarvamuse mõju LLM-ides', DE: 'Die Auswirkungen kultureller Voreingenommenheit in LLMs' }),
+      title: t({ ES: 'El impacto del sesgo cultural en los LLMs', EN: 'The impact of cultural bias in LLMs', ET: 'Kultuurilise eelarvamuse mÃµju LLM-ides', DE: 'Die Auswirkungen kultureller Voreingenommenheit in LLMs' }),
       date: 'Oct 12, 2025',
-      category: t({ ES: 'Investigación', EN: 'Research', ET: 'Uuringud', DE: 'Forschung' }),
-      excerpt: t({ ES: 'Por qué los datos de entrenamiento bilingües son cruciales para evitar respuestas sesgadas en modelos generativos.', EN: 'Why bilingual training data is crucial to avoid biased responses in generative models.', ET: 'Miks kakskeelsed treeningandmed on üliolulised...', DE: 'Warum bilinguale Trainingsdaten entscheidend sind...' }),
+      category: t({ ES: 'InvestigaciÃ³n', EN: 'Research', ET: 'Uuringud', DE: 'Forschung' }),
+      excerpt: t({ ES: 'Por quÃ© los datos de entrenamiento bilingÃ¼es son cruciales para evitar respuestas sesgadas en modelos generativos.', EN: 'Why bilingual training data is crucial to avoid biased responses in generative models.', ET: 'Miks kakskeelsed treeningandmed on Ã¼liolulised...', DE: 'Warum bilinguale Trainingsdaten entscheidend sind...' }),
       imageUrl: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&fit=crop',
     },
     {
-      title: t({ ES: 'Mejorando el IAA en anotación de sentimientos', EN: 'Improving IAA in sentiment annotation', ET: 'IAA parandamine sentimentide annoteerimisel', DE: 'Verbesserung der IAA bei der Sentiment-Annotation' }),
+      title: t({ ES: 'Mejorando el IAA en anotaciÃ³n de sentimientos', EN: 'Improving IAA in sentiment annotation', ET: 'IAA parandamine sentimentide annoteerimisel', DE: 'Verbesserung der IAA bei der Sentiment-Annotation' }),
       date: 'Sep 28, 2025',
-      category: t({ ES: 'Metodología', EN: 'Methodology', ET: 'Metoodika', DE: 'Methodik' }),
-      excerpt: t({ ES: 'Nuestra guía paso a paso para alcanzar un acuerdo entre anotadores superior a 0.90 en tareas subjetivas.', EN: 'Our step-by-step guide to achieving inter-annotator agreement above 0.90 in subjective tasks.', ET: 'Meie samm-sammuline juhend...', DE: 'Unser Schritt-für-Schritt-Leitfaden...' }),
+      category: t({ ES: 'MetodologÃ­a', EN: 'Methodology', ET: 'Metoodika', DE: 'Methodik' }),
+      excerpt: t({ ES: 'Nuestra guÃ­a paso a paso para alcanzar un acuerdo entre anotadores superior a 0.90 en tareas subjetivas.', EN: 'Our step-by-step guide to achieving inter-annotator agreement above 0.90 in subjective tasks.', ET: 'Meie samm-sammuline juhend...', DE: 'Unser Schritt-fÃ¼r-Schritt-Leitfaden...' }),
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&fit=crop',
     },
     {
-      title: t({ ES: 'Tendencias de Anotación de Datos 2026', EN: 'Data Annotation Trends 2026', ET: 'Andmete annoteerimise trendid 2026', DE: 'Datenannotations-Trends 2026' }),
+      title: t({ ES: 'Tendencias de AnotaciÃ³n de Datos 2026', EN: 'Data Annotation Trends 2026', ET: 'Andmete annoteerimise trendid 2026', DE: 'Datenannotations-Trends 2026' }),
       date: 'Sep 15, 2025',
-      category: t({ ES: 'Industria', EN: 'Industry', ET: 'Tööstus', DE: 'Industrie' }),
-      excerpt: t({ ES: 'Desde RLHF hasta anotación multimodal, exploramos lo que depara el futuro para la preparación de datos de IA.', EN: 'From RLHF to multimodal annotation, we explore what the future holds for AI data preparation.', ET: 'Alates RLHF-ist kuni multimodaalse annoteerimiseni...', DE: 'Von RLHF bis zur multimodalen Annotation...' }),
+      category: t({ ES: 'Industria', EN: 'Industry', ET: 'TÃ¶Ã¶stus', DE: 'Industrie' }),
+      excerpt: t({ ES: 'Desde RLHF hasta anotaciÃ³n multimodal, exploramos lo que depara el futuro para la preparaciÃ³n de datos de IA.', EN: 'From RLHF to multimodal annotation, we explore what the future holds for AI data preparation.', ET: 'Alates RLHF-ist kuni multimodaalse annoteerimiseni...', DE: 'Von RLHF bis zur multimodalen Annotation...' }),
       imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&fit=crop',
     },
     {
-      title: t({ ES: 'Cómo escalar tu pipeline de datos con Vocdata', EN: 'How to scale your data pipeline with Vocdata', ET: 'Kuidas laiendada oma andmekanalit Vocdataga', DE: 'So skalieren Sie Ihre Daten-Pipeline mit Vocdata' }),
+      title: t({ ES: 'CÃ³mo escalar tu pipeline de datos con Vocdata', EN: 'How to scale your data pipeline with Vocdata', ET: 'Kuidas laiendada oma andmekanalit Vocdataga', DE: 'So skalieren Sie Ihre Daten-Pipeline mit Vocdata' }),
       date: 'Ago 30, 2025',
       category: t({ ES: 'Estudio de Caso', EN: 'Case Study', ET: 'Juhtumiuuring', DE: 'Fallstudie' }),
-      excerpt: t({ ES: 'Descubre cómo ayudamos a una startup de HealthTech a procesar 1M de registros médicos en 30 días.', EN: 'Discover how we helped a HealthTech startup process 1M medical records in 30 days.', ET: 'Avastage, kuidas aitasime HealthTechi idufirmal töödelda...', DE: 'Entdecken Sie, wie wir einem HealthTech-Startup geholfen haben...' }),
+      excerpt: t({ ES: 'Descubre cÃ³mo ayudamos a una startup de HealthTech a procesar 1M de registros mÃ©dicos en 30 dÃ­as.', EN: 'Discover how we helped a HealthTech startup process 1M medical records in 30 days.', ET: 'Avastage, kuidas aitasime HealthTechi idufirmal tÃ¶Ã¶delda...', DE: 'Entdecken Sie, wie wir einem HealthTech-Startup geholfen haben...' }),
       imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&fit=crop',
     },
     {
-      title: t({ ES: 'La importancia de los lingüistas nativos', EN: 'The importance of native linguists', ET: 'Kohalike keeleteadlaste tähtsus', DE: 'Die Bedeutung von Muttersprachlern' }),
+      title: t({ ES: 'La importancia de los lingÃ¼istas nativos', EN: 'The importance of native linguists', ET: 'Kohalike keeleteadlaste tÃ¤htsus', DE: 'Die Bedeutung von Muttersprachlern' }),
       date: 'Ago 14, 2025',
-      category: t({ ES: 'Metodología', EN: 'Methodology', ET: 'Metoodika', DE: 'Methodik' }),
-      excerpt: t({ ES: 'Analizamos la diferencia de calidad entre traducciones automatizadas y la validación por expertos humanos.', EN: 'We analyze the quality difference between automated translations and validation by human experts.', ET: 'Analüüsime automaattõlgete ja inimekspertide kinnitamise kvaliteedi erinevust.', DE: 'Wir analysieren den Qualitätsunterschied zwischen automatisierten Übersetzungen und der Validierung durch menschliche Experten.' }),
+      category: t({ ES: 'MetodologÃ­a', EN: 'Methodology', ET: 'Metoodika', DE: 'Methodik' }),
+      excerpt: t({ ES: 'Analizamos la diferencia de calidad entre traducciones automatizadas y la validaciÃ³n por expertos humanos.', EN: 'We analyze the quality difference between automated translations and validation by human experts.', ET: 'AnalÃ¼Ã¼sime automaattÃµlgete ja inimekspertide kinnitamise kvaliteedi erinevust.', DE: 'Wir analysieren den QualitÃ¤tsunterschied zwischen automatisierten Ãœbersetzungen und der Validierung durch menschliche Experten.' }),
       imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&fit=crop',
     },
     {
-      title: t({ ES: 'Visión por Computadora en la logística', EN: 'Computer Vision in logistics', ET: 'Arvutinägemine logistikas', DE: 'Computer Vision in der Logistik' }),
+      title: t({ ES: 'VisiÃ³n por Computadora en la logÃ­stica', EN: 'Computer Vision in logistics', ET: 'ArvutinÃ¤gemine logistikas', DE: 'Computer Vision in der Logistik' }),
       date: 'Jul 22, 2025',
-      category: t({ ES: 'Industria', EN: 'Industry', ET: 'Tööstus', DE: 'Industrie' }),
-      excerpt: t({ ES: 'Casos de uso reales de cómo el etiquetado preciso de videos mejora la seguridad en cadenas de suministro.', EN: 'Real use cases of how accurate video labeling improves safety in supply chains.', ET: 'Reaalsed kasutusjuhtumid selle kohta, kuidas täpne videomärgistus parandab tarneahelate ohutust.', DE: 'Reale Anwendungsfälle, wie eine genaue Videokennzeichnung die Sicherheit in Lieferketten verbessert.' }),
+      category: t({ ES: 'Industria', EN: 'Industry', ET: 'TÃ¶Ã¶stus', DE: 'Industrie' }),
+      excerpt: t({ ES: 'Casos de uso reales de cÃ³mo el etiquetado preciso de videos mejora la seguridad en cadenas de suministro.', EN: 'Real use cases of how accurate video labeling improves safety in supply chains.', ET: 'Reaalsed kasutusjuhtumid selle kohta, kuidas tÃ¤pne videomÃ¤rgistus parandab tarneahelate ohutust.', DE: 'Reale AnwendungsfÃ¤lle, wie eine genaue Videokennzeichnung die Sicherheit in Lieferketten verbessert.' }),
       imageUrl: '/images/services/service-image.webp',
     }
   ];
@@ -159,7 +159,7 @@ export const Blog = () => {
           />
         </div>
 
-        <div className="container mx-auto px-4 md:px-10 lg:px-[120px] relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
@@ -175,9 +175,9 @@ export const Blog = () => {
               className="text-[16px] md:text-[18px] text-[#CBD5E1] font-normal leading-[1.6]"
             >
               {t({
-                ES: 'Insights, metodologías y tendencias sobre la industria de la anotación de datos para IA.',
+                ES: 'Insights, metodologÃ­as y tendencias sobre la industria de la anotaciÃ³n de datos para IA.',
                 EN: 'Insights, methodologies, and trends about the AI data annotation industry.',
-                ET: 'Sissevaated, metoodikad ja trendid AI andmete annoteerimise tööstuse kohta.',
+                ET: 'Sissevaated, metoodikad ja trendid AI andmete annoteerimise tÃ¶Ã¶stuse kohta.',
                 DE: 'Einblicke, Methoden und Trends rund um die KI-Datenannotationsbranche.'
               })}
             </motion.p>
