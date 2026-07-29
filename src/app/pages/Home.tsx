@@ -20,6 +20,8 @@ export const Home = () => {
   const graphOpacity   = useTransform(graphScroll, [0, 0.5, 1], [0, 0.4, 1]);
   
   const [dimensions, setDimensions] = useState({ w: 1200, h: 800 });
+  const [simulatorMode, setSimulatorMode] = useState<'competence' | 'vocdata'>('competence');
+  
   useEffect(() => {
     setDimensions({ w: window.innerWidth, h: window.innerHeight });
     const handleResize = () => setDimensions({ w: window.innerWidth, h: window.innerHeight });
@@ -251,70 +253,225 @@ export const Home = () => {
             </h2>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="relative max-w-5xl mx-auto h-[500px] md:h-[600px] flex items-center justify-center perspective-[1000px]"
-          >
-            {/* 3D Map / Constellation container */}
+          {/* HOLOGRAPHIC COMMAND CENTER & LLM SIMULATOR */}
+          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center mt-12 w-full max-w-7xl mx-auto">
+            
+            {/* 1. Holographic Orbital Matrix */}
             <motion.div 
-              className="relative w-full h-full flex items-center justify-center preserve-3d"
-              animate={{ rotateY: [0, 5, 0, -5, 0], rotateX: [0, 2, 0, -2, 0] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1 }}
+              className="relative w-full lg:w-1/2 h-[400px] md:h-[500px] flex items-center justify-center perspective-[1000px]"
             >
-              {/* Connecting lines */}
-              <motion.svg className="absolute inset-0 w-full h-full z-0 opacity-30" viewBox="0 0 800 600">
-                <motion.circle cx="400" cy="300" r="160" fill="none" stroke="#4A90D9" strokeWidth="1" strokeDasharray="4,4" style={{ pathLength: graphPathLength }} />
-                <motion.circle cx="400" cy="300" r="240" fill="none" stroke="#4A90D9" strokeWidth="1" strokeDasharray="4,4" style={{ pathLength: graphPathLength }} />
-                <motion.path d="M400,300 L240,300" stroke="#4A90D9" strokeWidth="1" opacity="0.5" style={{ pathLength: graphPathLength }} />
-                <motion.path d="M400,300 L560,300" stroke="#4A90D9" strokeWidth="1" opacity="0.5" style={{ pathLength: graphPathLength }} />
-                <motion.path d="M400,300 L280,180" stroke="#4A90D9" strokeWidth="1" opacity="0.5" style={{ pathLength: graphPathLength }} />
-                <motion.path d="M400,300 L520,420" stroke="#4A90D9" strokeWidth="1" opacity="0.5" style={{ pathLength: graphPathLength }} />
-                <motion.path d="M400,300 L400,60" stroke="#4A90D9" strokeWidth="1" opacity="0.5" style={{ pathLength: graphPathLength }} />
-              </motion.svg>
+              <motion.div 
+                className="relative w-full h-full flex items-center justify-center preserve-3d"
+                animate={{ rotateY: [0, 8, 0, -8, 0], rotateX: [0, 4, 0, -4, 0] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                {/* Data Flow Lines */}
+                <svg className="absolute inset-0 w-full h-full z-0 opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {[
+                    { x2: 10 + 12, y2: 15 + 12 }, // Add 12% (half of 24 w/h) to center roughly
+                    { x2: 85 + 12, y2: 20 + 12 },
+                    { x2: 15 + 12, y2: 75 + 12 },
+                    { x2: 80 + 12, y2: 80 + 12 },
+                    { x2: 50 + 12, y2: 5 + 12 }
+                  ].map((pos, i) => (
+                    <g key={i}>
+                      <line x1="50" y1="50" x2={pos.x2} y2={pos.y2} stroke="#3b82f6" strokeWidth="0.2" opacity="0.3" />
+                      <motion.line 
+                        x1={pos.x2} y1={pos.y2} x2="50" y2="50" 
+                        stroke="#22d3ee" strokeWidth="0.5" 
+                        strokeDasharray="5 150"
+                        animate={{ strokeDashoffset: [150, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                      />
+                    </g>
+                  ))}
+                </svg>
 
-              {/* Center Node: Vocdata */}
-              <div className="absolute z-20 w-32 h-32 md:w-40 md:h-40 rounded-full bg-[#1E293B] shadow-[0_0_40px_rgba(74,144,217,0.6)] flex items-center justify-center border-2 border-[#4A90D9] backdrop-blur-md">
-                <span className="text-[#FFFFFF] font-bold text-[20px] text-center px-2">Vocdata.ai</span>
+                {/* Toroidal Light Ring */}
+                <motion.svg 
+                  className="absolute w-[320px] h-[320px] md:w-[440px] md:h-[440px] z-10 drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] pointer-events-none"
+                  viewBox="0 0 100 100"
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                >
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="url(#cyan-gradient)" strokeWidth="0.3" strokeDasharray="6 4" opacity="0.8" />
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#blue-gradient)" strokeWidth="0.8" strokeDasharray="2 6" opacity="0.6" />
+                  <circle cx="50" cy="50" r="36" fill="none" stroke="url(#violet-gradient)" strokeWidth="0.4" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="cyan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22d3ee" />
+                      <stop offset="100%" stopColor="transparent" />
+                    </linearGradient>
+                    <linearGradient id="blue-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="transparent" />
+                    </linearGradient>
+                    <linearGradient id="violet-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#8b5cf6" />
+                      <stop offset="100%" stopColor="transparent" />
+                    </linearGradient>
+                  </defs>
+                </motion.svg>
+                
+                {/* Center Core: Vocdata.ai */}
+                <div className="absolute z-20 w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-900 shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center justify-center border-2 border-cyan-500/50 backdrop-blur-md">
+                  <span className="text-[#FFFFFF] font-bold text-[22px] tracking-wide text-center px-2 [text-shadow:0_0_10px_rgba(6,182,212,0.8)]">
+                    Vocdata.ai
+                  </span>
+                  <div className="absolute inset-0 rounded-full bg-cyan-500/20 animate-ping opacity-20"></div>
+                </div>
+
+                {/* Satellites (Competence) */}
+                {[
+                  { name: 'Appen', x: '10%', y: '15%', delay: 0 },
+                  { name: 'DataAnnotation', x: '85%', y: '20%', delay: 1 },
+                  { name: 'Localizera', x: '15%', y: '75%', delay: 2 },
+                  { name: 'LanguageLine', x: '80%', y: '80%', delay: 3 },
+                  { name: 'Global L10N', x: '50%', y: '5%', delay: 4 }
+                ].map((node, i) => (
+                  <motion.div 
+                    key={i}
+                    className="absolute z-10 w-24 h-24 rounded-full bg-slate-900/90 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center p-2 text-center text-[12px] font-semibold text-slate-100 border border-cyan-500/40 hover:border-cyan-400 cursor-default"
+                    style={{ left: node.x, top: node.y }}
+                    animate={{ y: [-4, 4, -4] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: node.delay }}
+                  >
+                    {node.name}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* 2. Liquid Glass LLM Simulator HUD */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2 bg-slate-900/60 backdrop-blur-xl border border-blue-500/30 rounded-[24px] p-6 shadow-2xl flex flex-col relative overflow-hidden"
+            >
+              {/* Simulator Header / Toggle */}
+              <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+                <span className="text-sm font-semibold text-slate-300 tracking-wider">
+                  {t({ ES: 'SIMULADOR DE IMPACTO LLM', EN: 'LLM IMPACT SIMULATOR', ET: 'LLM MÕJU SIMULAATOR', DE: 'LLM-AUSWIRKUNGSSIMULATOR' })}
+                </span>
+                
+                {/* Custom Toggle Switch */}
+                <div className="flex bg-slate-800/80 p-1 rounded-full border border-slate-700 w-full sm:w-auto overflow-hidden">
+                  <button
+                    onClick={() => setSimulatorMode('competence')}
+                    className={`flex-1 sm:flex-none px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 ${simulatorMode === 'competence' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
+                  >
+                    {t({ ES: 'Competencia', EN: 'Competitors', ET: 'Konkurents', DE: 'Wettbewerb' })}
+                  </button>
+                  <button
+                    onClick={() => setSimulatorMode('vocdata')}
+                    className={`flex-1 sm:flex-none px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 ${simulatorMode === 'vocdata' ? 'bg-cyan-600/80 text-white shadow-[0_0_15px_rgba(8,145,178,0.5)]' : 'text-slate-400 hover:text-slate-200'}`}
+                  >
+                    Vocdata.ai
+                  </button>
+                </div>
               </div>
 
-              {/* Orbiting Nodes */}
-              {[
-                { name: 'Appen', x: '15%', y: '20%' },
-                { name: 'DataAnnotation', x: '80%', y: '15%' },
-                { name: 'Localizera', x: '10%', y: '60%' },
-                { name: 'LanguageLine Solutions', x: '75%', y: '70%' },
-                { name: 'Bilingual Global', x: '50%', y: '10%' }
-              ].map((node, i) => (
-                <motion.div 
-                  key={i}
-                  className="absolute z-10 w-28 h-28 rounded-full bg-[#1E293B]/80 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center justify-center p-3 text-center text-[14px] font-medium text-[#CBD5E1] border border-[#334155]"
-                  style={{ left: node.x, top: node.y, opacity: graphOpacity }}
-                >
-                  {node.name}
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+              {/* Prompt Box */}
+              <div className="bg-slate-950/50 rounded-xl p-4 mb-4 border border-slate-800">
+                <div className="flex items-center gap-2 mb-2 text-slate-400 text-xs">
+                  <div className="w-2 h-2 rounded-full bg-slate-500"></div>
+                  <span>User Prompt</span>
+                </div>
+                <p className="text-sm text-slate-200 font-mono">
+                  {t({
+                    ES: '> "Genera un análisis financiero trimestral para el mercado latinoamericano..."',
+                    EN: '> "Generate a quarterly financial analysis for the Latin American market..."',
+                    ET: '> "Loo kvartaalne finantsanalüüs Ladina-Ameerika turu jaoks..."',
+                    DE: '> "Erstellen Sie eine vierteljährliche Finanzanalyse für den lateinamerikanischen Markt..."'
+                  })}
+                </p>
+              </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mt-12 max-w-3xl mx-auto"
-          >
-            <p className="text-[18px] text-[#CBD5E1] leading-[1.6]">
-              {t({
-                ES: 'Vocdata.ai se diferencia por su enfoque en precisión bilingüe, atención personalizada y lingüistas nativos especializados, asegurando la más alta calidad en cada interacción.',
-                EN: 'Vocdata.ai stands out for its focus on bilingual accuracy, personalized attention, and specialized native linguists, ensuring the highest quality in every interaction.',
-                ET: 'Vocdata.ai paistab silma keskendumisega kakskeelsele täpsusele, isikupärasele tähelepanule ja spetsialiseerunud keeleteadlastele.',
-                DE: 'Vocdata.ai zeichnet sich durch den Fokus auf bilinguale Genauigkeit, persönliche Betreuung und spezialisierte Muttersprachler aus.'
-              })}
-            </p>
-          </motion.div>
+              {/* Response Box */}
+              <div className="bg-slate-950/50 rounded-xl p-4 border border-slate-800 flex-grow min-h-[160px] flex flex-col">
+                <div className="flex items-center gap-2 mb-2 text-slate-400 text-xs">
+                  <div className={`w-2 h-2 rounded-full ${simulatorMode === 'competence' ? 'bg-yellow-500' : 'bg-cyan-500'}`}></div>
+                  <span>LLM Output</span>
+                </div>
+                
+                {simulatorMode === 'competence' ? (
+                  <p className="text-sm text-slate-300 leading-relaxed font-mono">
+                    {t({
+                      ES: 'El trimestre muestra ganancias de plata considerables. ',
+                      EN: 'The quarter shows considerable silver gains. ',
+                      ET: 'Kvartal näitab märkimisväärset hõbeda kasvu. ',
+                      DE: 'Das Quartal zeigt beträchtliche Silbergewinne. '
+                    })}
+                    <span className="bg-red-500/20 text-red-300 px-1 rounded border border-red-500/30">
+                      {t({ ES: 'Los plata', EN: 'The silver', ET: 'Hõbe', DE: 'Das Silber' })}
+                    </span>
+                    {t({
+                      ES: ' incrementó el ROI. Es un buen momento para comprar ',
+                      EN: ' increased the ROI. It is a good time to buy ',
+                      ET: ' suurendas ROI-d. On hea aeg osta ',
+                      DE: ' erhöhte den ROI. Es ist ein guter Zeitpunkt, um '
+                    })}
+                    <span className="bg-yellow-500/20 text-yellow-300 px-1 rounded border border-yellow-500/30">
+                      {t({ ES: 'tacos', EN: 'tacos', ET: 'tacosid', DE: 'Tacos' })}
+                    </span>.
+                  </p>
+                ) : (
+                  <p className="text-sm text-slate-200 leading-relaxed font-mono">
+                    {t({
+                      ES: 'El trimestre muestra ',
+                      EN: 'The quarter shows ',
+                      ET: 'Kvartal näitab ',
+                      DE: 'Das Quartal zeigt '
+                    })}
+                    <span className="bg-emerald-500/20 text-emerald-300 px-1 rounded border border-emerald-500/30">
+                      {t({ ES: 'ganancias netas consolidadas', EN: 'consolidated net gains', ET: 'konsolideeritud puhaskasumit', DE: 'konsolidierte Nettogewinne' })}
+                    </span>
+                    {t({
+                      ES: ' considerables. La liquidez incrementó el ROI regional. Es un momento estratégico para realizar ',
+                      EN: ' considerably. Liquidity increased regional ROI. It is a strategic moment to execute ',
+                      ET: ' oluliselt. Likviidsus suurendas piirkondlikku ROI-d. On strateegiline hetk teha ',
+                      DE: ' erheblich. Die Liquidität erhöhte den regionalen ROI. Es ist ein strategischer Moment, um '
+                    })}
+                    <span className="bg-emerald-500/20 text-emerald-300 px-1 rounded border border-emerald-500/30">
+                      {t({ ES: 'inversiones corporativas', EN: 'corporate investments', ET: 'ettevõtete investeeringuid', DE: 'Unternehmensinvestitionen' })}
+                    </span>.
+                  </p>
+                )}
+              </div>
+
+              {/* Metrics Grid */}
+              <div className="grid grid-cols-3 gap-2 mt-4">
+                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
+                  <div className={`text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-cyan-400' : 'text-slate-400'}`}>
+                    {simulatorMode === 'vocdata' ? '99.8%' : '85.4%'}
+                  </div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">
+                    {t({ ES: 'Precisión', EN: 'Accuracy', ET: 'Täpsus', DE: 'Präzision' })}
+                  </div>
+                </div>
+                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
+                  <div className={`text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-emerald-400' : 'text-slate-400'}`}>
+                    {simulatorMode === 'vocdata' ? '0.92' : '0.74'}
+                  </div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">IAA Score</div>
+                </div>
+                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
+                  <div className={`text-sm font-bold mt-1 ${simulatorMode === 'vocdata' ? 'text-blue-400' : 'text-slate-400'}`}>
+                    {simulatorMode === 'vocdata' ? 'PRIORITY' : 'STANDARD'}
+                  </div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-1">SLA Tier</div>
+                </div>
+              </div>
+
+            </motion.div>
+          </div>
+
         </div>
       </section>
 

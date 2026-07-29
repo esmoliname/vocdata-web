@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLang } from '../context/LangContext';
 import { motion, AnimatePresence } from 'motion/react';
-import { Target, Zap, Shield, GraduationCap } from 'lucide-react';
+import { Target, Zap, Shield } from 'lucide-react';
 
 const TeamCardImage: React.FC<{ src: string; alt: string; initials: string }> = ({ src, alt, initials }) => {
   const [failed, setFailed] = useState(false);
@@ -202,36 +202,6 @@ export const About = () => {
             </div>
           </div>
           
-          {/* Corporate Social Responsibility (CSR) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto mt-20 p-8 md:p-12 bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl text-center shadow-2xl relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#4A90D9]/5 to-transparent pointer-events-none"></div>
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#1E293B]/80 border border-[#4A90D9]/30 mb-6 group-hover:scale-110 group-hover:border-[#4A90D9]/60 transition-transform duration-500 shadow-[0_0_15px_rgba(74,144,217,0.2)]">
-              <GraduationCap className="w-8 h-8 text-[#4A90D9]" />
-            </div>
-            <h3 className="text-[28px] md:text-[32px] font-semibold text-[#FFFFFF] mb-6 relative z-10">
-              {t({
-                ES: 'Responsabilidad Social Corporativa (RSC)',
-                EN: 'Corporate Social Responsibility (CSR)',
-                ET: 'Ettevõtte sotsiaalne vastutus (CSR)',
-                DE: 'Soziale Verantwortung des Unternehmens (CSR)'
-              })}
-            </h3>
-            <p className="text-[18px] text-[#CBD5E1] leading-[1.7] relative z-10">
-              {t({
-                ES: 'Empoderando el futuro de la tecnología: Nos comprometemos a destinar un porcentaje de nuestros ingresos anuales para apoyar y patrocinar a la próxima generación de talentos que cursan carreras de TI (Tecnologías de la Información) y ciencias de la computación.',
-                EN: 'Empowering the future of technology: We pledge a percentage of our annual revenue to support and sponsor the next generation of talent pursuing IT and computer science careers.',
-                ET: 'Tehnoloogia tuleviku võimestamine: kohustume suunama teatud protsendi oma aastasest tulust järgmise põlvkonna talentide toetamiseks ja sponsoreerimiseks, kes teevad karjääri IT- ja arvutiteadustes.',
-                DE: 'Stärkung der Zukunft der Technologie: Wir verpflichten uns, einen Prozentsatz unseres Jahresumsatzes zur Unterstützung und Förderung der nächsten Generation von Talenten in den Bereichen IT und Informatik bereitzustellen.'
-              })}
-            </p>
-          </motion.div>
-
         </div>
       </section>
 
