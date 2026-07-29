@@ -50,9 +50,9 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">{t('Contacto', 'Contact')}</h4>
             <ul className="flex flex-col gap-2 text-gray-300 text-sm">
-              <li>hello@vocdata.ai</li>
+              <li>datasolution@vocdatawebvercelapp.com</li>
               <li>+1 (555) 123-4567</li>
-              <li>123 Data Ave, San Francisco, CA</li>
+              <li>Tallinn, Estonia</li>
             </ul>
           </div>
         </div>

@@ -234,8 +234,8 @@ export const Contact = () => {
                  {t({ ES: 'Soporte', EN: 'Support', ET: 'Tugi', DE: 'Support' })}
                </h4>
                <div className="space-y-1">
-                 <a href="mailto:info@vocdata.ai" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
-                   info@vocdata.ai
+                 <a href="mailto:datasolution@vocdatawebvercelapp.com" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
+                   datasolution@vocdatawebvercelapp.com
                  </a>
                </div>
             </div>
@@ -258,8 +258,7 @@ export const Contact = () => {
                  {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'Büros' })}
                </h4>
                <div className="space-y-1">
-                 <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">123 Data Ave, San Francisco, CA</p>
-                 <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Calle Principal 45, Madrid, España</p>
+                 <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Tallinn, Estonia</p>
                </div>
             </div>
 
