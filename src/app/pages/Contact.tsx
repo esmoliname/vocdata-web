@@ -19,15 +19,15 @@ export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
+
     setIsSubmitting(true);
     setStatus('idle');
     setErrorMessage('');
-    
+
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_vocdata';
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_fh5mx6b';
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'nrYxE1wsrhLXELpAi';
-    
+
     const templateParams = {
       from_name: formData.name,
       name: formData.name,
@@ -66,7 +66,7 @@ export const Contact = () => {
 
   useEffect(() => {
     setDimensions({ w: window.innerWidth, h: window.innerHeight });
-    
+
     const handleResize = () => setDimensions({ w: window.innerWidth, h: window.innerHeight });
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -77,21 +77,21 @@ export const Contact = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#0B1121] to-[#1E293B] overflow-hidden flex flex-col pt-32 pb-20 font-sans">
       {/* Background Image */}
-      <ImageWithFallback 
+      <ImageWithFallback
         src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjBuZXR3b3JrJTIwZGFya3xlbnwxfHx8fDE3ODI2MjIwNzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
         alt="Abstract Neural Network"
         className="absolute inset-0 w-full h-full object-cover opacity-10 blur-[6px] mix-blend-overlay"
       />
-      
+
       {/* Background Pattern: Code/Data Lines */}
-      <div 
+      <div
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: 'linear-gradient(0deg, transparent 24%, #4A90D9 25%, #4A90D9 26%, transparent 27%, transparent 74%, #4A90D9 75%, #4A90D9 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #4A90D9 25%, #4A90D9 26%, transparent 27%, transparent 74%, #4A90D9 75%, #4A90D9 76%, transparent 77%, transparent)',
           backgroundSize: '30px 30px'
         }}
       ></div>
-      
+
       {/* Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((_, i) => (
@@ -118,7 +118,7 @@ export const Contact = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-10">
-        
+
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-[48px] font-bold mb-4 text-[#FFFFFF] [text-shadow:0_2px_10px_rgba(0,0,0,0.4)]">
@@ -136,12 +136,12 @@ export const Contact = () => {
 
         {/* 2 Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-          
+
           {/* Left Column (60%): Form */}
           <div className="lg:col-span-3 bg-[#1E293B]/80 backdrop-blur-[10px] rounded-[16px] p-8 border border-[#334155]/50 shadow-2xl relative overflow-hidden">
             <AnimatePresence>
               {status === 'success' && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -152,7 +152,7 @@ export const Contact = () => {
                 </motion.div>
               )}
               {status === 'error' && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -167,8 +167,8 @@ export const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Nombre completo', EN: 'Full Name', ET: 'Täisnimi', DE: 'Vollständiger Name' })}</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -179,8 +179,8 @@ export const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Correo corporativo', EN: 'Work Email', ET: 'Töö e-post', DE: 'Geschäftliche E-Mail' })}</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -192,8 +192,8 @@ export const Contact = () => {
               </div>
               <div>
                 <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Empresa', EN: 'Company', ET: 'Ettevõte', DE: 'Unternehmen' })}</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
@@ -203,7 +203,7 @@ export const Contact = () => {
               </div>
               <div>
                 <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Mensaje o detalles del proyecto', EN: 'Message or project details', ET: 'Sõnum või projekti üksikasjad', DE: 'Nachricht oder Projektdetails' })}</label>
-                <textarea 
+                <textarea
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -212,12 +212,12 @@ export const Contact = () => {
                   disabled={isSubmitting}
                 ></textarea>
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="group w-full h-14 rounded-lg bg-[#4A90D9] text-[#FFFFFF] font-semibold text-[16px] hover:bg-[#2ECC71] hover:shadow-[0_4px_15px_rgba(46,204,113,0.4)] transition-all duration-300 flex justify-center items-center gap-2 mt-4 disabled:bg-[#334155] disabled:text-[#94A3B8] disabled:cursor-not-allowed disabled:shadow-none"
               >
-                {isSubmitting 
+                {isSubmitting
                   ? t({ ES: 'Enviando...', EN: 'Sending...', ET: 'Saatmine...', DE: 'Senden...' })
                   : t({ ES: 'Enviar Mensaje', EN: 'Send Message', ET: 'Saada Sõnum', DE: 'Nachricht senden' })
                 }
@@ -229,59 +229,59 @@ export const Contact = () => {
           {/* Right Column (40%): Info */}
           <div className="lg:col-span-2 space-y-5">
             <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-6 border border-white/10 flex flex-col gap-2 hover:bg-slate-900/60 hover:border-white/20 transition-all shadow-lg">
-               <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
-                 <Mail className="w-5 h-5 text-[#2ECC71]" /> 
-                 {t({ ES: 'Soporte', EN: 'Support', ET: 'Tugi', DE: 'Support' })}
-               </h4>
-               <div className="space-y-1">
-                 <a href="mailto:datasolution@vocdatawebvercelapp.com" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
-                   datasolution@vocdatawebvercelapp.com
-                 </a>
-               </div>
+              <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
+                <Mail className="w-5 h-5 text-[#2ECC71]" />
+                {t({ ES: 'Soporte', EN: 'Support', ET: 'Tugi', DE: 'Support' })}
+              </h4>
+              <div className="space-y-1">
+                <a href="mailto:datasolution@vocdatawebvercelapp.com" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
+                  datasolution@vocdatawebvercelapp.com
+                </a>
+              </div>
             </div>
 
             <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-6 border border-white/10 flex flex-col gap-2 hover:bg-slate-900/60 hover:border-white/20 transition-all shadow-lg">
-               <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
-                 <Phone className="w-5 h-5 text-[#4A90D9]" /> 
-                 {t({ ES: 'Llámanos', EN: 'Call us', ET: 'Helista meile', DE: 'Rufen Sie uns an' })}
-               </h4>
-               <div className="space-y-1">
-                 <a href="tel:+50687587740" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
-                   +506 8758 7740
-                 </a>
-               </div>
+              <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
+                <Phone className="w-5 h-5 text-[#4A90D9]" />
+                {t({ ES: 'Llámanos', EN: 'Call us', ET: 'Helista meile', DE: 'Rufen Sie uns an' })}
+              </h4>
+              <div className="space-y-1">
+                <a href="tel:+50687587740" className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5] hover:text-[#4A90D9] transition-colors block">
+                  +506 8758 7740
+                </a>
+              </div>
             </div>
 
             <div className="bg-slate-900/40 backdrop-blur-md rounded-xl p-6 border border-white/10 flex flex-col gap-2 hover:bg-slate-900/60 hover:border-white/20 transition-all shadow-lg">
-               <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
-                 <MapPin className="w-5 h-5 text-[#2ECC71]" /> 
-                 {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'Büros' })}
-               </h4>
-               <div className="space-y-1">
-                 <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Tallinn, Estonia</p>
-               </div>
+              <h4 className="font-semibold text-[16px] text-[#FFFFFF] mb-1 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2ECC71]" />
+                {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'Büros' })}
+              </h4>
+              <div className="space-y-1">
+                <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Tallinn, Estonia</p>
+              </div>
             </div>
 
             {/* Map Placeholder */}
             <div className="w-full h-[220px] rounded-xl overflow-hidden relative border border-[#334155] mt-6 bg-[#0F172A] shadow-lg">
-               <div className="absolute inset-0 flex items-center justify-center text-[#4A90D9] font-medium z-10 bg-[#0F172A]/40 backdrop-blur-[2px]">
-                 {t({ ES: 'Mapa Interactivo', EN: 'Interactive Map', ET: 'Interaktiivne kaart', DE: 'Interaktive Karte' })}
-               </div>
-               {/* Map lines SVG */}
-               <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path d="M0,20 Q30,40 50,20 T100,50" fill="none" stroke="#4A90D9" strokeWidth="0.5" />
-                  <path d="M0,60 Q40,80 60,40 T100,80" fill="none" stroke="#2ECC71" strokeWidth="0.5" />
-                  <path d="M30,0 L30,100" fill="none" stroke="#4A90D9" strokeWidth="0.5" />
-                  <path d="M70,0 L70,100" fill="none" stroke="#2ECC71" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="15" fill="none" stroke="#4A90D9" strokeWidth="0.2" />
-                  <circle cx="50" cy="50" r="30" fill="none" stroke="#2ECC71" strokeWidth="0.1" />
-               </svg>
-               {/* Marker */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#2ECC71] rounded-full border-2 border-[#1E293B] shadow-[0_0_15px_rgba(46,204,113,0.8)] z-10">
-                  <div className="absolute inset-0 bg-[#2ECC71] rounded-full animate-ping opacity-75"></div>
-               </div>
+              <div className="absolute inset-0 flex items-center justify-center text-[#4A90D9] font-medium z-10 bg-[#0F172A]/40 backdrop-blur-[2px]">
+                {t({ ES: 'Mapa Interactivo', EN: 'Interactive Map', ET: 'Interaktiivne kaart', DE: 'Interaktive Karte' })}
+              </div>
+              {/* Map lines SVG */}
+              <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,20 Q30,40 50,20 T100,50" fill="none" stroke="#4A90D9" strokeWidth="0.5" />
+                <path d="M0,60 Q40,80 60,40 T100,80" fill="none" stroke="#2ECC71" strokeWidth="0.5" />
+                <path d="M30,0 L30,100" fill="none" stroke="#4A90D9" strokeWidth="0.5" />
+                <path d="M70,0 L70,100" fill="none" stroke="#2ECC71" strokeWidth="0.5" />
+                <circle cx="50" cy="50" r="15" fill="none" stroke="#4A90D9" strokeWidth="0.2" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#2ECC71" strokeWidth="0.1" />
+              </svg>
+              {/* Marker */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#2ECC71] rounded-full border-2 border-[#1E293B] shadow-[0_0_15px_rgba(46,204,113,0.8)] z-10">
+                <div className="absolute inset-0 bg-[#2ECC71] rounded-full animate-ping opacity-75"></div>
+              </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -307,7 +307,7 @@ export const Contact = () => {
                   {t({ ES: '¿En qué podemos ayudarte hoy?', EN: 'How can we help you today?', ET: 'Kuidas saame teid täna aidata?', DE: 'Wie können wir Ihnen heute helfen?' })}
                 </p>
               </div>
-              
+
               {/* Options */}
               <div className="flex flex-col p-2 gap-1">
                 {[
@@ -329,7 +329,7 @@ export const Contact = () => {
 
                 {/* Separator */}
                 <div className="h-[1px] bg-white/10 my-2 mx-2"></div>
-                
+
                 {/* Custom Input */}
                 <div className="flex items-center gap-2 px-2 pb-2">
                   <input
