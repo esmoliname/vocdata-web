@@ -24,22 +24,25 @@ export const Contact = () => {
     setStatus('idle');
     setErrorMessage('');
 
-    const SERVICE_ID = 'service_qx2sx0r';
-    const TEMPLATE_ID = 'template_ulvj8i6';
-    const PUBLIC_KEY = 'fX-RfT6OE3vgvp2UA';
+    console.log("Enviando EmailJS:", {
+      service: 'service_qx2sx0r',
+      template: 'template_ulvj8i6',
+      key: 'fX-RfT6OE3vgvp2UA'
+    });
 
-    const templateParams = {
-      from_name: formData.name,
-      name: formData.name,
-      reply_to: formData.email,
-      email: formData.email,
-      company: formData.company,
-      message: formData.message,
-    };
-
-    console.log('Enviando a EmailJS con credenciales:', { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY, templateParams });
-
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+    emailjs.send(
+      'service_qx2sx0r',
+      'template_ulvj8i6',
+      {
+        from_name: formData.name,
+        name: formData.name,
+        reply_to: formData.email,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      },
+      'fX-RfT6OE3vgvp2UA'
+    )
       .then((response) => {
         console.log('EMAILJS ÉXITO:', response.status, response.text);
         setStatus('success');
