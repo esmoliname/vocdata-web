@@ -3,13 +3,58 @@ import { useLang } from '../context/LangContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { MessageSquare, Send, Phone, Mail, MapPin } from 'lucide-react';
+import { MessageSquare, Send, Phone, Mail, MapPin, CheckCircle2, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const { t } = useLang();
   const [dimensions, setDimensions] = useState({ w: 1200, h: 800 });
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
   const [customMessage, setCustomMessage] = useState('');
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+    
+    setIsSubmitting(true);
+    setStatus('idle');
+    setErrorMessage('');
+    
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_vocdata';
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_fh5mx6b';
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'nrYxE1wsrhLXELpAi';
+    
+    const templateParams = {
+      from_name: formData.name,
+      name: formData.name,
+      reply_to: formData.email,
+      email: formData.email,
+      company: formData.company,
+      message: formData.message,
+    };
+
+    console.log('Enviando a EmailJS con credenciales:', { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY, templateParams });
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then((response) => {
+        console.log('EMAILJS ÉXITO:', response.status, response.text);
+        setStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      })
+      .catch((err) => {
+        console.error('EMAILJS ERROR 400 DETALLADO:', err);
+        setStatus('error');
+        setErrorMessage(err?.text || err?.message || 'Error en las credenciales o parámetros de EmailJS');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
 
   const handleCustomMessageSend = () => {
     if (customMessage.trim() === '') return;
@@ -93,23 +138,55 @@ export const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
           
           {/* Left Column (60%): Form */}
-          <div className="lg:col-span-3 bg-[#1E293B]/80 backdrop-blur-[10px] rounded-[16px] p-8 border border-[#334155]/50 shadow-2xl">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <div className="lg:col-span-3 bg-[#1E293B]/80 backdrop-blur-[10px] rounded-[16px] p-8 border border-[#334155]/50 shadow-2xl relative overflow-hidden">
+            <AnimatePresence>
+              {status === 'success' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-6 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl p-4 flex items-center gap-3 text-sm backdrop-blur-md"
+                >
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                  <span>{t({ ES: '¡Mensaje Enviado con Éxito!', EN: 'Message Sent Successfully!', ET: 'Sõnum saadetud edukalt!', DE: 'Nachricht erfolgreich gesendet!' })}</span>
+                </motion.div>
+              )}
+              {status === 'error' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mb-6 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl p-4 flex items-center gap-3 text-sm backdrop-blur-md"
+                >
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                  <span>{errorMessage}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Nombre completo', EN: 'Full Name', ET: 'Täisnimi', DE: 'Vollständiger Name' })}</label>
                   <input 
                     type="text" 
-                    className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
                     placeholder={t({ ES: 'Ej. Nombre completo', EN: 'E.g. Full name', ET: 'Nt. Täisnimi', DE: 'Z.B. Vollständiger Name' })}
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
                   <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Correo corporativo', EN: 'Work Email', ET: 'Töö e-post', DE: 'Geschäftliche E-Mail' })}</label>
                   <input 
                     type="email" 
-                    className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
                     placeholder="nombre@empresa.com"
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
@@ -117,23 +194,34 @@ export const Contact = () => {
                 <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Empresa', EN: 'Company', ET: 'Ettevõte', DE: 'Unternehmen' })}</label>
                 <input 
                   type="text" 
-                  className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full h-12 px-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all disabled:opacity-50"
                   placeholder={t({ ES: 'Nombre de tu empresa', EN: 'Your company name', ET: 'Teie ettevõtte nimi', DE: 'Ihr Firmenname' })}
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
                 <label className="block text-[14px] font-semibold text-[#E2E8F0] mb-[8px] text-left">{t({ ES: 'Mensaje o detalles del proyecto', EN: 'Message or project details', ET: 'Sõnum või projekti üksikasjad', DE: 'Nachricht oder Projektdetails' })}</label>
                 <textarea 
-                  className="w-full p-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all min-h-[150px] resize-y"
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full p-4 rounded-lg border border-[#334155] bg-[#0F172A] text-[16px] text-[#E2E8F0] placeholder:text-[#94A3B8] placeholder:font-normal focus:outline-none focus:border-[#2ECC71] focus:ring-1 focus:ring-[#2ECC71] focus:shadow-[0_0_10px_rgba(46,204,113,0.2)] transition-all min-h-[150px] resize-y disabled:opacity-50"
                   placeholder={t({ ES: 'Cuéntanos sobre tus necesidades de anotación...', EN: 'Tell us about your annotation needs...', ET: 'Rääkige meile oma annoteerimisvajadustest...', DE: 'Erzählen Sie uns von Ihren Annotationsbedürfnissen...' })}
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
               <button 
                 type="submit" 
-                className="group w-full h-14 rounded-lg bg-[#4A90D9] text-[#FFFFFF] font-semibold text-[16px] hover:bg-[#2ECC71] hover:shadow-[0_4px_15px_rgba(46,204,113,0.4)] transition-all duration-300 flex justify-center items-center gap-2 mt-4"
+                disabled={isSubmitting}
+                className="group w-full h-14 rounded-lg bg-[#4A90D9] text-[#FFFFFF] font-semibold text-[16px] hover:bg-[#2ECC71] hover:shadow-[0_4px_15px_rgba(46,204,113,0.4)] transition-all duration-300 flex justify-center items-center gap-2 mt-4 disabled:bg-[#334155] disabled:text-[#94A3B8] disabled:cursor-not-allowed disabled:shadow-none"
               >
-                {t({ ES: 'Enviar Mensaje', EN: 'Send Message', ET: 'Saada Sõnum', DE: 'Nachricht senden' })}
-                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                {isSubmitting 
+                  ? t({ ES: 'Enviando...', EN: 'Sending...', ET: 'Saatmine...', DE: 'Senden...' })
+                  : t({ ES: 'Enviar Mensaje', EN: 'Send Message', ET: 'Saada Sõnum', DE: 'Nachricht senden' })
+                }
+                {!isSubmitting && <span className="transform group-hover:translate-x-1 transition-transform">→</span>}
               </button>
             </form>
           </div>
