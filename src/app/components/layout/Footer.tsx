@@ -15,7 +15,7 @@ export const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
                 <span className="text-brand-primary font-bold text-xl leading-none">V</span>
               </div>
-              <span className="font-bold text-xl text-white tracking-tight">Vocdata.ai</span>
+              <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="text-cyan-400">.ai</span></span>
             </div>
             <p className="text-gray-300 text-sm mb-6 max-w-xs">
               {t('Anotación de datos bilingüe para IA y Machine Learning. Precisión lingüística y cultural en español e inglés.', 'Bilingual data annotation for AI and Machine Learning. Linguistic and cultural precision in Spanish and English.')}

@@ -45,7 +45,7 @@ export const Header = () => {
           <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center">
             <span className="text-white font-bold text-xl leading-none">V</span>
           </div>
-          <span className="font-bold text-xl text-brand-primary tracking-tight">Vocdata.ai</span>
+          <span className="font-bold text-xl text-brand-primary tracking-tight">Vocdata<span className="text-cyan-500">.ai</span></span>
         </NavLink>
 
         {/* Desktop Nav */}
