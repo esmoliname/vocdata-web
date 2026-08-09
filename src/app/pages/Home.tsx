@@ -32,27 +32,27 @@ export const Home = () => {
   const particles = Array.from({ length: 30 });
 
   return (
-    <div className="flex flex-col w-full overflow-hidden font-sans bg-[#0B1121]">
+    <div className="flex flex-col w-full overflow-hidden font-sans bg-[#030712] relative">
+      {/* Global Background Grid for Continuity */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(74,144,217,1) 1px, transparent 1px), linear-gradient(90deg, rgba(74,144,217,1) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0B1121] to-[#1E293B] overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#030712] via-[#090f20] to-[#030712]">
         {/* Abstract Background Image */}
         <motion.div className="absolute inset-0 w-full h-full pointer-events-none" style={{ y: y1 }}>
           <ImageWithFallback 
             src={heroImage}
             alt="Abstract Neural Network"
-            className="w-full h-full object-cover opacity-15 blur-[8px] mix-blend-overlay"
+            className="w-full h-full object-cover opacity-10 blur-[8px] mix-blend-overlay"
           />
         </motion.div>
         
-        {/* Background Pattern: Code/Data Lines */}
-        <div 
-          className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: 'linear-gradient(0deg, transparent 24%, #4A90D9 25%, #4A90D9 26%, transparent 27%, transparent 74%, #4A90D9 75%, #4A90D9 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #4A90D9 25%, #4A90D9 26%, transparent 27%, transparent 74%, #4A90D9 75%, #4A90D9 76%, transparent 77%, transparent)',
-            backgroundSize: '30px 30px'
-          }}
-        ></div>
-
         {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {particles.map((_, i) => (
@@ -77,7 +77,7 @@ export const Home = () => {
           ))}
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10 flex flex-col items-center text-center">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10 flex flex-col items-center text-center mt-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,7 +125,8 @@ export const Home = () => {
       </section>
 
       {/* 2. MÉTRICAS DE CONFIANZA */}
-      <section className="py-20 bg-[#FFFFFF] relative z-20">
+      <section className="py-20 relative z-20">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-cyan-900/20 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 -mt-32">
             {[
@@ -139,10 +140,10 @@ export const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="bg-[#FFFFFF] rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-t-4 border-[#2ECC71] p-8 text-center flex flex-col items-center justify-center transform hover:-translate-y-2 transition-transform duration-300"
+                className="bg-slate-900/60 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-6 shadow-[0_0_25px_rgba(6,182,212,0.15)] hover:border-cyan-400/60 transition-all hover:-translate-y-1 flex flex-col items-center justify-center text-center relative z-10"
               >
-                <div className="text-[56px] font-bold text-[#2ECC71] mb-2 leading-none">{metric.value}</div>
-                <div className="text-[18px] text-[#4A4A4A] font-normal leading-[1.6]">{metric.label}</div>
+                <div className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent text-4xl sm:text-5xl font-extrabold mb-2 leading-none">{metric.value}</div>
+                <div className="text-slate-300 font-medium text-sm mt-2">{metric.label}</div>
               </motion.div>
             ))}
           </div>
@@ -150,8 +151,8 @@ export const Home = () => {
       </section>
 
       {/* 3. SERVICIOS (RESUMEN) */}
-      <section className="py-24 bg-gradient-to-b from-[#0F172A] to-[#1E293B] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(74,144,217,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(74,144,217,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      <section className="py-24 bg-gradient-to-b from-[#030712] via-[#090f20] to-[#030712] relative">
+        <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
         
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10 text-center">
           <motion.h2 
@@ -169,19 +170,19 @@ export const Home = () => {
                 icon: <FileText size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
                 desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe', EN: 'Semantic labeling, NER, bilingual sentiment analysis', ET: 'Semantiline märgistamine, NER', DE: 'Semantische Kennzeichnung, NER' }),
-                img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&fit=crop'
+                img: '/images/services/service-text.webp'
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
                 desc: t({ ES: 'Transcripción, diarización de hablantes, etiquetado fonético', EN: 'Transcription, speaker diarization, phonetic labeling', ET: 'Transkriptsioon, kõnelejate eristamine', DE: 'Transkription, Sprecherdiarisierung' }),
-                img: 'https://images.unsplash.com/photo-1516280440502-8610eb675039?q=80&w=800&fit=crop'
+                img: '/images/services/service-audio.webp'
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
                 desc: t({ ES: 'Etiquetado de objetos, seguimiento, reconocimiento de acciones', EN: 'Object labeling, tracking, action recognition', ET: 'Objektide märgistamine, jälgimine', DE: 'Objektkennzeichnung, Tracking' }),
-                img: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&fit=crop'
+                img: '/images/services/service-video.webp'
               }
             ].map((srv, idx) => (
               <motion.div
@@ -198,7 +199,7 @@ export const Home = () => {
                   className="absolute inset-0 w-full h-full object-cover opacity-20 blur-[4px] z-0"
                 />
                 
-                <div className="relative z-10 p-8 h-full bg-[#1E293B]/90 backdrop-blur-[12px]">
+                <div className="relative z-10 p-8 h-full bg-[#030712]/90 backdrop-blur-[12px]">
                   {srv.icon}
                   <h3 className="text-[24px] font-semibold text-[#FFFFFF] mb-3">{srv.title}</h3>
                   <p className="text-[16px] text-[#CBD5E1] font-normal leading-[1.6]">{srv.desc}</p>
@@ -222,8 +223,9 @@ export const Home = () => {
       </section>
 
       {/* 4. NUEVO MÓDULO DE ECOSISTEMA / COMPETENCIA */}
-      <section ref={graphSectionRef} className="py-24 bg-gradient-to-b from-[#0F172A] to-[#1E293B] overflow-hidden relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <section ref={graphSectionRef} className="py-24 bg-gradient-to-b from-[#030712] via-[#090f20] to-[#030712] overflow-hidden relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div className="absolute left-0 bottom-1/4 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-3xl opacity-20"></div>
           {particles.slice(0, 15).map((_, i) => (
             <motion.div
               key={`eco-particle-${i}`}
@@ -272,7 +274,7 @@ export const Home = () => {
                 {/* Data Flow Lines */}
                 <svg className="absolute inset-0 w-full h-full z-0 opacity-60" viewBox="0 0 100 100" preserveAspectRatio="none">
                   {[
-                    { x2: 10 + 12, y2: 15 + 12 }, // Add 12% (half of 24 w/h) to center roughly
+                    { x2: 10 + 12, y2: 15 + 12 },
                     { x2: 85 + 12, y2: 20 + 12 },
                     { x2: 15 + 12, y2: 75 + 12 },
                     { x2: 80 + 12, y2: 80 + 12 },
@@ -476,21 +478,12 @@ export const Home = () => {
       </section>
 
       {/* 5. LLAMADA A LA ACCIÓN FINAL (CTA) */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#0B1121] py-20">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#030712] to-[#0B1121] py-20">
         
         {/* Fondo de Aurora Tecnológica */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-[#0B1121]/80 to-[#0B1121] z-0"></div>
-        <div className="absolute top-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-cyan-900/30 via-transparent to-transparent z-0 opacity-70"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-indigo-900/30 via-transparent to-transparent z-0 opacity-70"></div>
-
-        {/* Fondo de Cuadrícula (Mesh Grid) */}
-        <div 
-          className="absolute inset-0 opacity-15 pointer-events-none z-0"
-          style={{
-            backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(74,144,217,0.3) 25%, rgba(74,144,217,0.3) 26%, transparent 27%, transparent 74%, rgba(74,144,217,0.3) 75%, rgba(74,144,217,0.3) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(74,144,217,0.3) 25%, rgba(74,144,217,0.3) 26%, transparent 27%, transparent 74%, rgba(74,144,217,0.3) 75%, rgba(74,144,217,0.3) 76%, transparent 77%, transparent)',
-            backgroundSize: '40px 40px'
-          }}
-        ></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-[#030712]/80 to-[#030712] z-0"></div>
+        <div className="absolute top-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent z-0 opacity-70"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-indigo-900/20 via-transparent to-transparent z-0 opacity-70"></div>
 
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10 flex flex-col items-center justify-center">
           

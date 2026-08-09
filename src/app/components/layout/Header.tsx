@@ -38,14 +38,15 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <div className="container mx-auto px-4 md:px-10 lg:px-[120px] h-20 flex items-center justify-between">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl transition-all duration-300">
+      <div className="p-[1px] bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.25)]">
+        <div className="bg-slate-950/85 backdrop-blur-xl rounded-full px-6 py-2.5 flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center">
             <span className="text-white font-bold text-xl leading-none">V</span>
           </div>
-          <span className="font-bold text-xl text-brand-primary tracking-tight">Vocdata<span className="text-cyan-500">.ai</span></span>
+          <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="text-cyan-400">.ai</span></span>
         </NavLink>
 
         {/* Desktop Nav */}
@@ -56,8 +57,8 @@ export const Header = () => {
               to={link.to}
               className={({ isActive }) =>
                 cn(
-                  'text-sm font-medium transition-colors hover:text-brand-secondary',
-                  isActive ? 'text-brand-secondary' : 'text-foreground-secondary'
+                  'text-sm font-medium transition-colors',
+                  isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-400'
                 )
               }
             >
@@ -76,7 +77,7 @@ export const Header = () => {
             </button>
 
             {isLangOpen && (
-              <div className="absolute top-full right-0 mt-2 w-20 bg-white border border-gray-100 rounded-md shadow-lg overflow-hidden flex flex-col z-50">
+              <div className="absolute top-full right-0 mt-2 w-20 bg-slate-900 border border-slate-800 rounded-md shadow-lg overflow-hidden flex flex-col z-50">
                 {LANGUAGES.map((l) => (
                   <button
                     key={l.code}
@@ -85,8 +86,8 @@ export const Header = () => {
                       setIsLangOpen(false);
                     }}
                     className={cn(
-                      'px-4 py-2 text-sm text-left font-medium transition-colors hover:bg-gray-50',
-                      lang === l.code ? 'text-brand-secondary bg-gray-50' : 'text-gray-700'
+                      'px-4 py-2 text-sm text-left font-medium transition-colors hover:bg-slate-800',
+                      lang === l.code ? 'text-cyan-400 bg-slate-800' : 'text-slate-300'
                     )}
                   >
                     {l.label}
@@ -142,7 +143,8 @@ export const Header = () => {
             </div>
           </div>
         </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };
