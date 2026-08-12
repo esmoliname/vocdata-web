@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLang } from '../context/LangContext';
 import { motion, AnimatePresence } from 'motion/react';
 
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { MessageSquare, Send, Phone, Mail, MapPin, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useIsMobile } from '../components/ui/use-mobile';
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const { t } = useLang();
+  const isMobile = useIsMobile();
   const [dimensions, setDimensions] = useState({ w: 1200, h: 800 });
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
   const [customMessage, setCustomMessage] = useState('');
@@ -15,6 +17,7 @@ export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const successResetTimer = useRef<number | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +48,8 @@ export const Contact = () => {
         console.log('EMAILJS ÉXITO:', response.status, response.text);
         setStatus('success');
         setFormData({ name: '', email: '', company: '', message: '' });
-        setTimeout(() => setStatus('idle'), 5000);
+        if (successResetTimer.current) window.clearTimeout(successResetTimer.current);
+        successResetTimer.current = window.setTimeout(() => setStatus('idle'), 5000);
       })
       .catch((err) => {
         console.error('EMAILJS ERROR 400 DETALLADO:', err);
@@ -70,10 +74,13 @@ export const Contact = () => {
 
     const handleResize = () => setDimensions({ w: window.innerWidth, h: window.innerHeight });
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (successResetTimer.current) window.clearTimeout(successResetTimer.current);
+    };
   }, []);
 
-  const particles = Array.from({ length: 20 });
+  const particles = Array.from({ length: isMobile ? 6 : 20 });
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#0B1121] to-[#1E293B] overflow-hidden flex flex-col pt-32 pb-20 font-sans">
@@ -288,7 +295,7 @@ export const Contact = () => {
       </div>
 
       {/* Floating WhatsApp Widget */}
-      <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end">
+      <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end">
         <AnimatePresence>
           {isWhatsAppOpen && (
             <motion.div
@@ -296,7 +303,7 @@ export const Contact = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="mb-4 w-[320px] bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_20px_rgba(37,211,102,0.15)] overflow-hidden"
+              className="mb-4 w-[320px] max-w-[calc(100vw-2rem)] bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_20px_rgba(37,211,102,0.15)] overflow-hidden"
             >
               {/* Header */}
               <div className="bg-[#25D366]/20 p-4 border-b border-white/10">

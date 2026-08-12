@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { motion, useScroll, useTransform } from 'motion/react';
 import heroImage from '../../imports/Gemini_Generated_Image_9am419am419am419.png';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import { useIsMobile } from '../components/ui/use-mobile';
 
 export const Home = () => {
   const { t } = useLang();
@@ -21,6 +22,7 @@ export const Home = () => {
   
   const [dimensions, setDimensions] = useState({ w: 1200, h: 800 });
   const [simulatorMode, setSimulatorMode] = useState<'competence' | 'vocdata'>('competence');
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     setDimensions({ w: window.innerWidth, h: window.innerHeight });
@@ -29,7 +31,7 @@ export const Home = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const particles = Array.from({ length: 30 });
+    const particles = Array.from({ length: isMobile ? 8 : 30 });
 
   return (
     <div className="flex flex-col w-full overflow-hidden font-sans bg-[#030712] relative">
@@ -82,7 +84,7 @@ export const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] leading-tight mb-6 max-w-4xl [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] leading-tight mb-6 max-w-4xl break-words text-balance [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]"
           >
             {t({
               ES: 'Datos Bilingües, Perfectamente Anotados',
@@ -226,7 +228,7 @@ export const Home = () => {
       <section ref={graphSectionRef} className="py-24 bg-gradient-to-b from-[#030712] via-[#090f20] to-[#030712] overflow-hidden relative">
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute left-0 bottom-1/4 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-3xl opacity-20"></div>
-          {particles.slice(0, 15).map((_, i) => (
+          {particles.slice(0, isMobile ? 6 : 15).map((_, i) => (
             <motion.div
               key={`eco-particle-${i}`}
               className="absolute w-[3px] h-[3px] rounded-full bg-[#4A90D9] opacity-30 shadow-[0_0_5px_#4A90D9]"
@@ -250,7 +252,7 @@ export const Home = () => {
 
         <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-[32px] md:text-[40px] font-semibold text-[#FFFFFF] mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-[#FFFFFF] mb-4 break-words text-balance">
               {t({ ES: 'El Ecosistema de Datos y Nuestro Factor Diferenciador', EN: 'The Data Ecosystem and Our Differentiating Factor', ET: 'Andmeökosüsteem ja meie eristav tegur', DE: 'Das Datenökosystem und unser Differenzierungsfaktor' })}
             </h2>
           </div>
@@ -268,7 +270,7 @@ export const Home = () => {
             >
               <motion.div 
                 className="relative w-full h-full flex items-center justify-center preserve-3d"
-                animate={{ rotateY: [0, 8, 0, -8, 0], rotateX: [0, 4, 0, -4, 0] }}
+                animate={isMobile ? undefined : { rotateY: [0, 8, 0, -8, 0], rotateX: [0, 4, 0, -4, 0] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
                 {/* Data Flow Lines */}
@@ -282,22 +284,31 @@ export const Home = () => {
                   ].map((pos, i) => (
                     <g key={i}>
                       <line x1="50" y1="50" x2={pos.x2} y2={pos.y2} stroke="#3b82f6" strokeWidth="0.2" opacity="0.3" />
-                      <motion.line 
-                        x1={pos.x2} y1={pos.y2} x2="50" y2="50" 
-                        stroke="#22d3ee" strokeWidth="0.5" 
-                        strokeDasharray="5 150"
-                        animate={{ strokeDashoffset: [150, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
-                      />
+                      {isMobile ? (
+                        <line
+                          x1={pos.x2} y1={pos.y2} x2="50" y2="50"
+                          stroke="#22d3ee" strokeWidth="0.5"
+                          strokeDasharray="5 150" strokeDashoffset="60"
+                          opacity="0.5"
+                        />
+                      ) : (
+                        <motion.line
+                          x1={pos.x2} y1={pos.y2} x2="50" y2="50"
+                          stroke="#22d3ee" strokeWidth="0.5"
+                          strokeDasharray="5 150"
+                          animate={{ strokeDashoffset: [150, 0] }}
+                          transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.4 }}
+                        />
+                      )}
                     </g>
                   ))}
                 </svg>
 
                 {/* Toroidal Light Ring */}
-                <motion.svg 
-                  className="absolute w-[320px] h-[320px] md:w-[440px] md:h-[440px] z-10 drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] pointer-events-none"
+                <motion.svg
+                  className={`absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] z-10 ${isMobile ? '' : 'drop-shadow-[0_0_20px_rgba(6,182,212,0.6)]'} pointer-events-none`}
                   viewBox="0 0 100 100"
-                  animate={{ rotate: 360 }}
+                  animate={isMobile ? undefined : { rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                 >
                   <circle cx="50" cy="50" r="48" fill="none" stroke="url(#cyan-gradient)" strokeWidth="0.3" strokeDasharray="6 4" opacity="0.8" />
@@ -329,17 +340,17 @@ export const Home = () => {
 
                 {/* Satellites (Competence) */}
                 {[
-                  { name: 'Appen', x: '10%', y: '15%', delay: 0 },
-                  { name: 'DataAnnotation', x: '85%', y: '20%', delay: 1 },
-                  { name: 'Localizera', x: '15%', y: '75%', delay: 2 },
-                  { name: 'LanguageLine', x: '80%', y: '80%', delay: 3 },
+                  { name: 'Appen', x: '12%', y: '15%', delay: 0 },
+                  { name: 'DataAnnotation', x: '88%', y: '20%', delay: 1 },
+                  { name: 'Localizera', x: '12%', y: '75%', delay: 2 },
+                  { name: 'LanguageLine', x: '88%', y: '80%', delay: 3 },
                   { name: 'Global L10N', x: '50%', y: '5%', delay: 4 }
                 ].map((node, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
-                    className="absolute z-10 w-24 h-24 rounded-full bg-slate-900/90 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center p-2 text-center text-[12px] font-semibold text-slate-100 border border-cyan-500/40 hover:border-cyan-400 cursor-default"
+                    className="absolute z-10 w-20 h-20 md:w-24 md:h-24 rounded-full bg-slate-900/90 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center p-2 text-center text-[10px] md:text-[12px] font-semibold text-slate-100 border border-cyan-500/40 hover:border-cyan-400 cursor-default"
                     style={{ left: node.x, top: node.y }}
-                    animate={{ y: [-4, 4, -4] }}
+                    animate={isMobile ? undefined : { y: [-4, 4, -4] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: node.delay }}
                   >
                     {node.name}
@@ -498,7 +509,7 @@ export const Home = () => {
             {/* Brillo interno sutil del cristal */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-3xl"></div>
 
-            <h2 className="text-[32px] md:text-[48px] font-semibold text-[#FFFFFF] mb-6 relative z-10">
+            <h2 className="text-[28px] sm:text-[32px] md:text-[48px] font-semibold text-[#FFFFFF] mb-6 relative z-10 break-words text-balance">
               {t({ ES: '¿Listo para Anotar tus Datos con Precisión?', EN: 'Ready to Annotate Your Data with Precision?', ET: 'Kas olete valmis oma andmeid täpselt annoteerima?', DE: 'Bereit, Ihre Daten präzise zu annotieren?' })}
             </h2>
             <p className="text-[18px] text-[#CBD5E1] max-w-[600px] mx-auto mb-10 leading-[1.6] relative z-10">

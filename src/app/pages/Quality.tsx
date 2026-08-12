@@ -23,7 +23,7 @@ export const Quality = () => {
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-[32px] md:text-[40px] font-semibold text-[#FFFFFF] mb-6 [text-shadow:0_2px_15px_rgba(0,0,0,0.4)]"
+              className="text-2xl sm:text-3xl md:text-[40px] font-semibold text-[#FFFFFF] mb-6 break-words text-balance [text-shadow:0_2px_15px_rgba(0,0,0,0.4)]"
             >
               {t({ ES: 'Calidad y Tecnología', EN: 'Quality & Technology', ET: 'Kvaliteet ja tehnoloogia', DE: 'Qualität und Technologie' })}
             </motion.h2>
@@ -88,14 +88,14 @@ export const Quality = () => {
               {/* Precision Bar Chart */}
               <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-[16px] p-8 shadow-2xl hover:border-blue-500/30 hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] transition-all duration-300" style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent)' }}>
                 <h4 className="text-[18px] font-semibold text-[#FFFFFF] mb-8 text-center">{t({ ES: 'Precisión Histórica', EN: 'Historical Accuracy', ET: 'Ajalooline täpsus', DE: 'Historische Genauigkeit' })}</h4>
-                <div className="flex items-end justify-center h-[200px] gap-8 border-b border-[#334155] pb-2 relative">
+                <div className="flex items-end justify-center h-[200px] gap-4 sm:gap-8 border-b border-[#334155] pb-2 relative">
                   {/* Background grid lines */}
                   <div className="absolute w-full h-[50px] border-b border-[#334155]/30 bottom-[50px]"></div>
                   <div className="absolute w-full h-[100px] border-b border-[#334155]/30 bottom-[100px]"></div>
                   <div className="absolute w-full h-[150px] border-b border-[#334155]/30 bottom-[150px]"></div>
 
                   {/* 2023 Bar */}
-                  <div className="flex flex-col items-center gap-3 w-16 group z-10">
+                  <div className="flex flex-col items-center gap-3 w-12 sm:w-16 group z-10">
                     <span className="text-[14px] font-semibold text-[#4A90D9] opacity-0 group-hover:opacity-100 transition-opacity">99.5%</span>
                     <motion.div 
                       initial={{ height: 0 }}
@@ -108,7 +108,7 @@ export const Quality = () => {
                   </div>
 
                   {/* 2024 Bar */}
-                  <div className="flex flex-col items-center gap-3 w-16 group z-10">
+                  <div className="flex flex-col items-center gap-3 w-12 sm:w-16 group z-10">
                     <span className="text-[14px] font-semibold text-[#4A90D9] opacity-0 group-hover:opacity-100 transition-opacity">99.7%</span>
                     <motion.div 
                       initial={{ height: 0 }}
@@ -121,7 +121,7 @@ export const Quality = () => {
                   </div>
 
                   {/* 2025 Bar */}
-                  <div className="flex flex-col items-center gap-3 w-16 z-10">
+                  <div className="flex flex-col items-center gap-3 w-12 sm:w-16 z-10">
                     <span className="text-[14px] font-bold text-[#2ECC71]">99.8%</span>
                     <motion.div 
                       initial={{ height: 0 }}

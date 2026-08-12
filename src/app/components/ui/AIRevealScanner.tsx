@@ -1,46 +1,86 @@
-import React, { useState, useRef } from 'react';
-import { motion, useAnimationFrame } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLang } from '../../context/LangContext';
 
 export const AIRevealScanner = () => {
   const { t } = useLang();
-  const [sliderPosition, setSliderPosition] = useState(50);
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const laserRef = useRef<HTMLDivElement>(null);
+  const revealRef = useRef<HTMLDivElement>(null);
+  const hoveredRef = useRef(false);
+  const inViewRef = useRef(false);
   const timeRef = useRef(0);
+  const animFrameRef = useRef<number | null>(null);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const applyPosition = (percentage: number) => {
+    const clamped = Math.max(0, Math.min(100, percentage));
+    if (laserRef.current) {
+      laserRef.current.style.left = `${clamped}%`;
+    }
+    if (revealRef.current) {
+      revealRef.current.style.clipPath = `inset(0 ${100 - clamped}% 0 0)`;
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-    const percentage = (x / rect.width) * 100;
-    setSliderPosition(percentage);
+    applyPosition((x / rect.width) * 100);
   };
 
-  // Auto animation when not hovering
-  useAnimationFrame((time, delta) => {
-    if (!isHovered) {
-      timeRef.current += delta;
-      // Oscillate between 20% and 80% smoothly
-      const position = 50 + Math.sin(timeRef.current / 2000) * 35;
-      setSliderPosition(position);
-    }
-  });
+  useEffect(() => {
+    applyPosition(50);
+
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        inViewRef.current = entries[0].isIntersecting;
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(el);
+
+    const autoLoop = (time: number) => {
+      animFrameRef.current = requestAnimationFrame(autoLoop);
+      if (!inViewRef.current || hoveredRef.current) return;
+      if (time - timeRef.current < 33) return;
+      timeRef.current = time;
+      const position = 50 + Math.sin(time / 2000) * 35;
+      applyPosition(position);
+    };
+    animFrameRef.current = requestAnimationFrame(autoLoop);
+
+    return () => {
+      observer.disconnect();
+      if (animFrameRef.current !== null) cancelAnimationFrame(animFrameRef.current);
+      animFrameRef.current = null;
+    };
+  }, []);
+
+  const setHovered = (v: boolean) => {
+    hoveredRef.current = v;
+    setIsHovered(v);
+  };
 
   return (
     <div className="w-full px-4 md:px-10 py-12">
-      <div 
+      <div
         ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-xl max-w-5xl mx-auto h-[450px] select-none cursor-crosshair shadow-2xl"
+        onPointerMove={handlePointerMove}
+        onMouseMove={() => setHovered(true)}
+        onPointerDown={() => setHovered(true)}
+        onPointerUp={() => window.setTimeout(() => setHovered(false), 250)}
+        onPointerLeave={() => setHovered(false)}
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-xl max-w-5xl mx-auto h-[300px] sm:h-[450px] select-none cursor-crosshair shadow-2xl touch-pan-y"
       >
         {/* Capa Inferior / Datos Crudos (Grayscale / Dim) */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" 
-            alt="Raw Data" 
+          <img
+            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+            alt="Raw Data"
             className="w-full h-full object-cover grayscale opacity-30"
             draggable="false"
           />
@@ -52,17 +92,18 @@ export const AIRevealScanner = () => {
         </div>
 
         {/* Capa Superior / Datos Etiquetados con IA */}
-        <div 
+        <div
+          ref={revealRef}
           className="absolute inset-0 z-10"
-          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+          style={{ clipPath: `inset(0 50% 0 0)` }}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" 
-            alt="AI Processed Data" 
+          <img
+            src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
+            alt="AI Processed Data"
             className="w-full h-full object-cover saturate-[1.5] contrast-[1.2] opacity-80"
             draggable="false"
           />
-          
+
           {/* Overlays / Bounding Boxes simulating AI */}
           <div className="absolute inset-0">
             {/* Bounding Box 1 */}
@@ -83,7 +124,7 @@ export const AIRevealScanner = () => {
                  [Path: 97.4%]
                </div>
             </div>
-            
+
             {/* Semantic Segmentation Lines */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 100 100" preserveAspectRatio="none">
                <path d="M27.5,42.5 L70,52.5 L84,20 L27.5,42.5 Z" fill="rgba(46,204,113,0.1)" stroke="#2ECC71" strokeWidth="0.2" strokeDasharray="1 1" className="animate-pulse" />
@@ -101,9 +142,10 @@ export const AIRevealScanner = () => {
         </div>
 
         {/* Laser de Escaneo */}
-        <div 
+        <div
+          ref={laserRef}
           className="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_20px_2px_#06b6d4] z-20 pointer-events-none flex flex-col justify-center items-center"
-          style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+          style={{ left: '50%', transform: 'translateX(-50%)' }}
         >
           {/* Handle Central */}
           <div className="w-10 h-10 rounded-full bg-slate-900 border-[2px] border-cyan-400 flex items-center justify-center shadow-[0_0_15px_#06b6d4]">

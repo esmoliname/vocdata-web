@@ -17,7 +17,7 @@ export const Impact = () => {
       </div>
 
       <section className="pt-20 md:pt-32 pb-32 relative z-10 w-full flex flex-col items-center">
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 flex flex-col items-center">
           
           {/* HEADER PRINCIPAL */}
           <motion.div 
@@ -26,7 +26,7 @@ export const Impact = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center mb-24 max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight break-words text-balance">
               {t({
                 ES: 'Responsabilidad Social Empresarial',
                 EN: 'Corporate Social Responsibility',
@@ -85,24 +85,24 @@ export const Impact = () => {
 
               {/* Nodo: Bienestar Social */}
               <div className="absolute left-1/2 top-[33.6%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
-                <Users className="w-8 h-8 text-amber-400 mb-1" />
-                <span className="text-sm md:text-base font-semibold text-white whitespace-nowrap">
+                <Users className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mb-1" />
+                <span className="text-xs sm:text-base font-semibold text-white whitespace-nowrap">
                   {t({ ES: 'Bienestar Social', EN: 'Social Wellbeing', ET: 'Sotsiaalne Heaolu', DE: 'Soziales Wohlbefinden' })}
                 </span>
               </div>
 
               {/* Nodo: Medio Ambiente */}
               <div className="absolute left-[26.4%] top-[71.1%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
-                <Globe className="w-8 h-8 text-emerald-400 mb-1" />
-                <span className="text-sm md:text-base font-semibold text-white whitespace-nowrap">
+                <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-400 mb-1" />
+                <span className="text-xs sm:text-base font-semibold text-white whitespace-nowrap">
                   {t({ ES: 'Medio Ambiente', EN: 'Environment', ET: 'Keskkond', DE: 'Umwelt' })}
                 </span>
               </div>
 
               {/* Nodo: Ganancia Justa */}
               <div className="absolute left-[73.6%] top-[71.1%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
-                <Coins className="w-8 h-8 text-sky-400 mb-1" />
-                <span className="text-sm md:text-base font-semibold text-white whitespace-nowrap">
+                <Coins className="w-6 h-6 sm:w-8 sm:h-8 text-sky-400 mb-1" />
+                <span className="text-xs sm:text-base font-semibold text-white whitespace-nowrap">
                   {t({ ES: 'Ganancia Justa', EN: 'Fair Profit', ET: 'Õiglane Kasum', DE: 'Fairer Gewinn' })}
                 </span>
               </div>

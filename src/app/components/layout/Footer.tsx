@@ -14,8 +14,8 @@ export const Footer = () => {
          ========================================= */}
       <div className="absolute inset-0 top-0 w-full h-[500px] bg-gradient-to-b from-blue-600/20 via-cyan-500/10 to-transparent blur-3xl pointer-events-none z-0"></div>
       
-      <div className="container mx-auto px-4 md:px-10 lg:px-[120px] relative z-10 flex flex-col items-center text-center mb-32">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-4xl tracking-tight [text-shadow:0_0_30px_rgba(6,182,212,0.3)]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10 flex flex-col items-center text-center mb-32">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-4xl tracking-tight break-words text-balance [text-shadow:0_0_30px_rgba(6,182,212,0.3)]">
           {t({
             ES: 'Tu próximo modelo de IA comienza con datos perfectos.',
             EN: 'Your next AI model starts with perfect data.',
@@ -36,7 +36,7 @@ export const Footer = () => {
       {/* =========================================
           BASE FOOTER INFO
          ========================================= */}
-      <div className="container mx-auto px-4 md:px-10 lg:px-[120px] relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-[120px] relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-slate-800/60">
           
           {/* Logo */}
