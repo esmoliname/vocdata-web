@@ -99,14 +99,18 @@ export const Header = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button className="lg:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="text-brand-primary" /> : <Menu className="text-brand-primary" />}
+        <button
+          className="lg:hidden text-slate-200 hover:text-cyan-400 transition-colors p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 p-4 flex flex-col gap-4 shadow-lg">
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] p-6 space-y-4">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -114,16 +118,16 @@ export const Header = () => {
               onClick={() => setIsOpen(false)}
               className={({ isActive }) =>
                 cn(
-                  'text-base font-medium p-2 rounded-md transition-colors',
-                  isActive ? 'bg-background-alt text-brand-secondary' : 'text-foreground-secondary'
+                  'text-slate-200 hover:text-cyan-400 font-medium text-base transition-colors py-2 border-b border-white/5 last:border-none',
+                  isActive && 'text-cyan-400 font-semibold bg-cyan-500/10 px-3 py-2 rounded-xl border border-cyan-500/20'
                 )
               }
             >
               {t(link.translations)}
             </NavLink>
           ))}
-          <div className="pt-2 border-t border-gray-100 flex items-center justify-between p-2">
-            <span className="text-sm font-medium text-foreground-secondary">Idioma / Language</span>
+          <div className="pt-4 border-t border-white/10">
+            <span className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 block">Idioma / Language</span>
             <div className="flex gap-2">
               {LANGUAGES.map((l) => (
                 <button
@@ -133,8 +137,8 @@ export const Header = () => {
                     setIsOpen(false);
                   }}
                   className={cn(
-                    'flex items-center justify-center w-10 h-10 rounded-md border border-gray-200 bg-background-alt text-sm font-semibold',
-                    lang === l.code ? 'border-brand-secondary text-brand-secondary' : 'text-gray-700'
+                    'flex items-center justify-center bg-slate-800/80 text-slate-300 border border-white/10 rounded-xl px-3 py-1.5 text-xs font-semibold hover:border-cyan-500/40 transition-colors',
+                    lang === l.code && 'bg-cyan-500/20 text-cyan-300 border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
                   )}
                 >
                   {l.label}
