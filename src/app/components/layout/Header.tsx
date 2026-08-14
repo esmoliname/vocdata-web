@@ -3,6 +3,7 @@ import { NavLink } from 'react-router';
 import { useLang, Language } from '../../context/LangContext';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import { Logo } from '../ui/Logo';
 
 const LANGUAGES: { code: Language; label: string }[] = [
   { code: 'ES', label: 'ES' },
@@ -42,11 +43,9 @@ export const Header = () => {
       <div className="p-[1px] bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.25)]">
         <div className="bg-slate-950/85 backdrop-blur-xl rounded-full px-6 py-2.5 flex items-center justify-between">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center">
-            <span className="text-white font-bold text-xl leading-none">V</span>
-          </div>
-          <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="text-cyan-400">.ai</span></span>
+        <NavLink to="/" className="flex items-center gap-2.5 group">
+          <Logo className="h-8 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_14px_rgba(6,182,212,0.6)]" />
+          <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-extrabold">.ai</span></span>
         </NavLink>
 
         {/* Desktop Nav */}

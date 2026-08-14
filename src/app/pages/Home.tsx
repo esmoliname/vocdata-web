@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import heroImage from '../../imports/Gemini_Generated_Image_9am419am419am419.png';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { useIsMobile } from '../components/ui/use-mobile';
+import { Logo } from '../components/ui/Logo';
 
 export const Home = () => {
   const { t } = useLang();
@@ -332,8 +333,9 @@ export const Home = () => {
                 
                 {/* Center Core: Vocdata.ai */}
                 <div className="absolute z-20 w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full bg-slate-900/90 border-2 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.4)] flex flex-col items-center justify-center text-center backdrop-blur-md">
-                  <span className="text-xs sm:text-sm md:text-base font-extrabold text-white tracking-tight [text-shadow:0_0_10px_rgba(6,182,212,0.8)]">
-                    Vocdata.ai
+                  <Logo className="h-6 w-auto sm:h-7 md:h-8" />
+                  <span className="text-[9px] sm:text-[11px] md:text-xs font-extrabold text-white tracking-tight mt-1.5 [text-shadow:0_0_10px_rgba(6,182,212,0.8)]">
+                    Vocdata<span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">.ai</span>
                   </span>
                   <div className="absolute inset-0 rounded-full bg-cyan-500/20 animate-ping opacity-20"></div>
                 </div>

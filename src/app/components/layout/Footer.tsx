@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router';
 import { useLang } from '../../context/LangContext';
 import { Linkedin, MessageCircle } from 'lucide-react';
+import { Logo } from '../ui/Logo';
 
 export const Footer = () => {
   const { t } = useLang();
@@ -41,10 +42,8 @@ export const Footer = () => {
           
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
-              <span className="text-slate-900 font-bold text-xl leading-none">V</span>
-            </div>
-            <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="text-cyan-400">.ai</span></span>
+            <Logo className="h-8 w-auto" />
+            <span className="font-bold text-xl text-white tracking-tight">Vocdata<span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-extrabold">.ai</span></span>
           </div>
 
           {/* Contact Details */}
