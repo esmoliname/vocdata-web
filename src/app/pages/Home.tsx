@@ -258,7 +258,7 @@ export const Home = () => {
           </div>
 
           {/* HOLOGRAPHIC COMMAND CENTER & LLM SIMULATOR */}
-          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center mt-12 w-full max-w-7xl mx-auto">
+          <div className="flex flex-col items-center justify-center gap-8 w-full max-w-5xl mx-auto px-4 mt-12">
             
             {/* 1. Holographic Orbital Matrix */}
             <motion.div 
@@ -266,7 +266,7 @@ export const Home = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1 }}
-              className="relative w-full lg:w-1/2 h-[400px] md:h-[500px] flex items-center justify-center perspective-[1000px]"
+              className="relative w-full max-w-[290px] sm:max-w-[360px] md:max-w-[480px] aspect-square mx-auto flex items-center justify-center my-4 perspective-[1000px]"
             >
               <motion.div 
                 className="relative w-full h-full flex items-center justify-center preserve-3d"
@@ -306,7 +306,7 @@ export const Home = () => {
 
                 {/* Toroidal Light Ring */}
                 <motion.svg
-                  className={`absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px] z-10 ${isMobile ? '' : 'drop-shadow-[0_0_20px_rgba(6,182,212,0.6)]'} pointer-events-none`}
+                  className={`absolute w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] md:w-[440px] md:h-[440px] z-10 ${isMobile ? '' : 'drop-shadow-[0_0_20px_rgba(6,182,212,0.6)]'} pointer-events-none`}
                   viewBox="0 0 100 100"
                   animate={isMobile ? undefined : { rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -331,8 +331,8 @@ export const Home = () => {
                 </motion.svg>
                 
                 {/* Center Core: Vocdata.ai */}
-                <div className="absolute z-20 w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-900 shadow-[0_0_30px_rgba(59,130,246,0.4)] flex items-center justify-center border-2 border-cyan-500/50 backdrop-blur-md">
-                  <span className="text-[#FFFFFF] font-bold text-[22px] tracking-wide text-center px-2 [text-shadow:0_0_10px_rgba(6,182,212,0.8)]">
+                <div className="absolute z-20 w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full bg-slate-900/90 border-2 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.4)] flex flex-col items-center justify-center text-center backdrop-blur-md">
+                  <span className="text-xs sm:text-sm md:text-base font-extrabold text-white tracking-tight [text-shadow:0_0_10px_rgba(6,182,212,0.8)]">
                     Vocdata.ai
                   </span>
                   <div className="absolute inset-0 rounded-full bg-cyan-500/20 animate-ping opacity-20"></div>
@@ -340,16 +340,15 @@ export const Home = () => {
 
                 {/* Satellites (Competence) */}
                 {[
-                  { name: 'Appen', x: '12%', y: '15%', delay: 0 },
-                  { name: 'DataAnnotation', x: '88%', y: '20%', delay: 1 },
-                  { name: 'Localizera', x: '12%', y: '75%', delay: 2 },
-                  { name: 'LanguageLine', x: '88%', y: '80%', delay: 3 },
-                  { name: 'Global L10N', x: '50%', y: '5%', delay: 4 }
+                  { name: 'Appen', pos: 'left-[3%] top-[10%]', delay: 0 },
+                  { name: 'DataAnnotation', pos: 'right-[3%] top-[16%]', delay: 1 },
+                  { name: 'Localizera', pos: 'left-[3%] bottom-[12%]', delay: 2 },
+                  { name: 'LanguageLine', pos: 'right-[3%] bottom-[16%]', delay: 3 },
+                  { name: 'Global L10N', pos: 'left-1/2 -translate-x-1/2 top-[2%]', delay: 4 }
                 ].map((node, i) => (
                   <motion.div
                     key={i}
-                    className="absolute z-10 w-20 h-20 md:w-24 md:h-24 rounded-full bg-slate-900/90 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center p-2 text-center text-[10px] md:text-[12px] font-semibold text-slate-100 border border-cyan-500/40 hover:border-cyan-400 cursor-default"
-                    style={{ left: node.x, top: node.y }}
+                    className={`absolute z-10 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-900/90 border border-white/15 text-[10px] sm:text-xs text-slate-300 font-medium whitespace-nowrap shadow-lg backdrop-blur-md ${node.pos}`}
                     animate={isMobile ? undefined : { y: [-4, 4, -4] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: node.delay }}
                   >
@@ -361,29 +360,29 @@ export const Home = () => {
 
             {/* 2. Liquid Glass LLM Simulator HUD */}
             <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2 bg-slate-900/60 backdrop-blur-xl border border-blue-500/30 rounded-[24px] p-6 shadow-2xl flex flex-col relative overflow-hidden"
+              className="w-full max-w-4xl mx-auto bg-slate-900/70 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl space-y-6 relative overflow-hidden"
             >
               {/* Simulator Header / Toggle */}
-              <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+              <div className="flex flex-col items-center gap-4">
                 <span className="text-sm font-semibold text-slate-300 tracking-wider">
                   {t({ ES: 'SIMULADOR DE IMPACTO LLM', EN: 'LLM IMPACT SIMULATOR', ET: 'LLM MÕJU SIMULAATOR', DE: 'LLM-AUSWIRKUNGSSIMULATOR' })}
                 </span>
                 
                 {/* Custom Toggle Switch */}
-                <div className="flex bg-slate-800/80 p-1 rounded-full border border-slate-700 w-full sm:w-auto overflow-hidden">
+                <div className="grid grid-cols-2 gap-2 p-1.5 bg-slate-950/80 rounded-xl border border-white/10 w-full max-w-md mx-auto">
                   <button
                     onClick={() => setSimulatorMode('competence')}
-                    className={`flex-1 sm:flex-none px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 ${simulatorMode === 'competence' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
+                    className={`py-2.5 px-4 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 ${simulatorMode === 'competence' ? 'bg-slate-700 text-white shadow-md' : 'text-slate-400 hover:text-slate-200'}`}
                   >
                     {t({ ES: 'Competencia', EN: 'Competitors', ET: 'Konkurents', DE: 'Wettbewerb' })}
                   </button>
                   <button
                     onClick={() => setSimulatorMode('vocdata')}
-                    className={`flex-1 sm:flex-none px-4 py-2 text-xs sm:text-sm font-medium rounded-full transition-all duration-300 ${simulatorMode === 'vocdata' ? 'bg-cyan-600/80 text-white shadow-[0_0_15px_rgba(8,145,178,0.5)]' : 'text-slate-400 hover:text-slate-200'}`}
+                    className={`py-2.5 px-4 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 ${simulatorMode === 'vocdata' ? 'bg-cyan-600/80 text-white shadow-[0_0_15px_rgba(8,145,178,0.5)]' : 'text-slate-400 hover:text-slate-200'}`}
                   >
                     Vocdata.ai
                   </button>
@@ -391,10 +390,10 @@ export const Home = () => {
               </div>
 
               {/* Prompt Box */}
-              <div className="bg-slate-950/50 rounded-xl p-4 mb-4 border border-slate-800">
+              <div className="bg-slate-950/50 rounded-xl p-4 border border-white/10">
                 <div className="flex items-center gap-2 mb-2 text-slate-400 text-xs">
                   <div className="w-2 h-2 rounded-full bg-slate-500"></div>
-                  <span>User Prompt</span>
+                  <span>{t({ ES: 'Solicitud del Usuario', EN: 'User Prompt', ET: 'Kasutaja päring', DE: 'Benutzeraufforderung' })}</span>
                 </div>
                 <p className="text-sm text-slate-200 font-mono">
                   {t({
@@ -407,10 +406,10 @@ export const Home = () => {
               </div>
 
               {/* Response Box */}
-              <div className="bg-slate-950/50 rounded-xl p-4 border border-slate-800 flex-grow min-h-[160px] flex flex-col">
+              <div className="bg-slate-950/50 rounded-xl p-4 border border-white/10 flex-grow min-h-[160px] flex flex-col">
                 <div className="flex items-center gap-2 mb-2 text-slate-400 text-xs">
                   <div className={`w-2 h-2 rounded-full ${simulatorMode === 'competence' ? 'bg-yellow-500' : 'bg-cyan-500'}`}></div>
-                  <span>LLM Output</span>
+                  <span>{t({ ES: 'Salida del LLM', EN: 'LLM Output', ET: 'LLM-i väljund', DE: 'LLM-Ausgabe' })}</span>
                 </div>
                 
                 {simulatorMode === 'competence' ? (
@@ -459,26 +458,32 @@ export const Home = () => {
               </div>
 
               {/* Metrics Grid */}
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
-                  <div className={`text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-cyan-400' : 'text-slate-400'}`}>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-4 border-t border-white/10">
+                <div className="bg-slate-800/60 rounded-xl p-4 text-center border border-white/10">
+                  <div className={`text-2xl sm:text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-cyan-400' : 'text-slate-400'}`}>
                     {simulatorMode === 'vocdata' ? '99.8%' : '85.4%'}
                   </div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-1">
                     {t({ ES: 'Precisión', EN: 'Accuracy', ET: 'Täpsus', DE: 'Präzision' })}
                   </div>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
-                  <div className={`text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-emerald-400' : 'text-slate-400'}`}>
+                <div className="bg-slate-800/60 rounded-xl p-4 text-center border border-white/10">
+                  <div className={`text-2xl sm:text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-emerald-400' : 'text-slate-400'}`}>
                     {simulatorMode === 'vocdata' ? '0.92' : '0.74'}
                   </div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">IAA Score</div>
-                </div>
-                <div className="bg-slate-800/50 rounded-lg p-2 text-center border border-slate-700">
-                  <div className={`text-sm font-bold mt-1 ${simulatorMode === 'vocdata' ? 'text-blue-400' : 'text-slate-400'}`}>
-                    {simulatorMode === 'vocdata' ? 'PRIORITY' : 'STANDARD'}
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-1">
+                    {t({ ES: 'Puntuación IAA', EN: 'IAA Score', ET: 'IAA skoor', DE: 'IAA-Wert' })}
                   </div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-1">SLA Tier</div>
+                </div>
+                <div className="bg-slate-800/60 rounded-xl p-4 text-center border border-white/10">
+                  <div className={`text-lg font-bold ${simulatorMode === 'vocdata' ? 'text-blue-400' : 'text-slate-400'}`}>
+                    {simulatorMode === 'vocdata'
+                      ? t({ ES: 'PRIORITARIO', EN: 'PRIORITY', ET: 'PRIORITEET', DE: 'PRIORITÄT' })
+                      : t({ ES: 'ESTÁNDAR', EN: 'STANDARD', ET: 'STANDARD', DE: 'STANDARD' })}
+                  </div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider mt-1">
+                    {t({ ES: 'Nivel SLA', EN: 'SLA Tier', ET: 'SLA-tase', DE: 'SLA-Stufe' })}
+                  </div>
                 </div>
               </div>
 
