@@ -111,22 +111,27 @@ export const Header = () => {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] p-6 space-y-4">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  'text-slate-200 hover:text-cyan-400 font-medium text-base transition-colors py-2 border-b border-white/5 last:border-none',
-                  isActive && 'text-cyan-400 font-semibold bg-cyan-500/10 px-3 py-2 rounded-xl border border-cyan-500/20'
-                )
-              }
-            >
-              {t(link.translations)}
-            </NavLink>
-          ))}
-          <div className="pt-4 border-t border-white/10">
+          <nav className="flex flex-col space-y-1.5 w-full">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    'w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 border border-transparent',
+                    isActive
+                      ? 'text-cyan-400 font-semibold bg-cyan-500/10 border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]'
+                      : 'text-slate-300 hover:text-white hover:bg-white/5 active:bg-white/10'
+                  )
+                }
+              >
+                {t(link.translations)}
+              </NavLink>
+            ))}
+          </nav>
+          <div className="my-3 border-t border-white/10 w-full" />
+          <div>
             <span className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 block">Idioma / Language</span>
             <div className="flex gap-2">
               {LANGUAGES.map((l) => (
