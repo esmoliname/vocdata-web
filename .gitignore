@@ -21,3 +21,14 @@ pnpm-debug.log*
 # Archivos temporales del sistema operativo
 .DS_Store
 Thumbs.db
+
+# Credenciales y material de claves
+.env.*
+!.env.example
+credentials.json
+id_rsa*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets*

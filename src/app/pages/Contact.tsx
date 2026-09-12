@@ -7,6 +7,10 @@ import { MessageSquare, Send, Mail, MapPin, CheckCircle2, AlertCircle } from 'lu
 import { useIsMobile } from '../components/ui/use-mobile';
 import emailjs from '@emailjs/browser';
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 export const Contact = () => {
   const { t } = useLang();
   const isMobile = useIsMobile();
@@ -27,22 +31,16 @@ export const Contact = () => {
     setStatus('idle');
     setErrorMessage('');
 
-    console.log("Enviando EmailJS:", {
-      service: 'service_qx2sx0r',
-      template: 'template_sf0rbgq',
-      key: 'fX-RfT6OE3vgvp2UA'
-    });
-
     emailjs.send(
-      'service_qx2sx0r',
-      'template_sf0rbgq',
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
       {
         name: formData.name,
         email: formData.email,
         company: formData.company,
         message: formData.message,
       },
-      'fX-RfT6OE3vgvp2UA'
+      EMAILJS_PUBLIC_KEY
     )
       .then((response) => {
         console.log('EMAILJS ÉXITO:', response.status, response.text);
