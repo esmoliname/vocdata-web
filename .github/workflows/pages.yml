@@ -26,14 +26,14 @@ jobs:
         with:
           node-version: 22
       - run: pnpm install
-- run: pnpm build
-           env:
-             VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-             VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
-             VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
-         # SPA fallback: GitHub Pages serves 404.html for unknown paths, so a
-         # hard reload on /vocdata-web/contact loads the app instead of a raw 404.
-         - run: cp dist/index.html dist/404.html
+      - run: pnpm build
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+        # SPA fallback: GitHub Pages serves 404.html for unknown paths, so a
+        # hard reload on /vocdata-web/contact loads the app instead of a raw 404.
+      - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
