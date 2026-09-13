@@ -16,6 +16,11 @@ const NotFound = () => (
   </div>
 );
 
+// GitHub Pages serves the app under /vocdata-web/. BASE_URL mirrors Vite's
+// `base` option at build time ('/vocdata-web/' on Pages, '/' on Vercel/root),
+// so the router basename stays consistent with the asset base path.
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined;
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -31,4 +36,4 @@ export const router = createBrowserRouter([
       { path: "*", Component: NotFound },
     ],
   },
-]);
+], { basename });
