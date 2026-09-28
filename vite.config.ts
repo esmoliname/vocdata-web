@@ -17,6 +17,11 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // Deployment base path. GitHub Pages serves this app at
+  // https://esmoliname.github.io/vocdata-web/, so every emitted asset URL and
+  // public/ file must be prefixed with the repo sub-path. Any GitHub Actions
+  // run (CI) is treated as a Pages build; local builds and other hosts
+  // (Vercel at the domain root) stay at '/'.
   base: process.env.GITHUB_ACTIONS ? '/vocdata-web/' : '/',
   plugins: [
     figmaAssetResolver(),

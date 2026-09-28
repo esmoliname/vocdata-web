@@ -12,11 +12,11 @@ export const Services = () => {
   const [activeIndustry, setActiveIndustry] = useState('health');
 
   const industries = [
-    { id: 'health', imageUrl: '/images/industries/health.jpg', label: t({ ES: 'Salud', EN: 'Healthcare', ET: 'Tervishoid', DE: 'Gesundheitswesen' }), glow: 'border-emerald-500/80 shadow-[0_0_20px_rgba(16,185,129,0.5)]', borderGlow: 'border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]', bgGlow: 'bg-emerald-500', neonText: 'from-emerald-400 via-teal-300 to-emerald-200' },
-    { id: 'logistics', imageUrl: '/images/industries/logistics.jpg', label: t({ ES: 'Logística', EN: 'Logistics', ET: 'Logistika', DE: 'Logistik' }), glow: 'border-cyan-500/80 shadow-[0_0_20px_rgba(6,182,212,0.5)]', borderGlow: 'border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.4)]', bgGlow: 'bg-cyan-500', neonText: 'from-cyan-400 via-blue-300 to-cyan-200' },
-    { id: 'finance', imageUrl: '/images/industries/finance.jpg', label: t({ ES: 'Finanzas', EN: 'Finance', ET: 'Rahandus', DE: 'Finanzen' }), glow: 'border-violet-500/80 shadow-[0_0_20px_rgba(139,92,246,0.5)]', borderGlow: 'border-violet-500/50 shadow-[0_0_15px_rgba(139,92,246,0.4)]', bgGlow: 'bg-violet-500', neonText: 'from-violet-400 via-purple-300 to-violet-200' },
-    { id: 'retail', imageUrl: '/images/industries/retail.jpg', label: t({ ES: 'Retail', EN: 'Retail', ET: 'Jaekaubandus', DE: 'Einzelhandel' }), glow: 'border-amber-500/80 shadow-[0_0_20px_rgba(245,158,11,0.5)]', borderGlow: 'border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.4)]', bgGlow: 'bg-amber-500', neonText: 'from-amber-400 via-orange-300 to-amber-200' },
-    { id: 'tech', imageUrl: '/images/industries/tech.jpg', label: t({ ES: 'Tecnología', EN: 'Technology', ET: 'Tehnoloogia', DE: 'Technologie' }), glow: 'border-blue-500/80 shadow-[0_0_20px_rgba(59,130,246,0.5)]', borderGlow: 'border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.4)]', bgGlow: 'bg-blue-500', neonText: 'from-blue-400 via-indigo-300 to-blue-200' },
+    { id: 'health', imageUrl: `${import.meta.env.BASE_URL}images/industries/health.jpg`, label: t({ ES: 'Salud', EN: 'Healthcare', ET: 'Tervishoid', DE: 'Gesundheitswesen' }), glow: 'border-emerald-500/80 shadow-[0_0_20px_rgba(16,185,129,0.5)]', borderGlow: 'border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]', bgGlow: 'bg-emerald-500', neonText: 'from-emerald-400 via-teal-300 to-emerald-200' },
+    { id: 'logistics', imageUrl: `${import.meta.env.BASE_URL}images/industries/logistics.jpg`, label: t({ ES: 'Logística', EN: 'Logistics', ET: 'Logistika', DE: 'Logistik' }), glow: 'border-cyan-500/80 shadow-[0_0_20px_rgba(6,182,212,0.5)]', borderGlow: 'border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.4)]', bgGlow: 'bg-cyan-500', neonText: 'from-cyan-400 via-blue-300 to-cyan-200' },
+    { id: 'finance', imageUrl: `${import.meta.env.BASE_URL}images/industries/finance.jpg`, label: t({ ES: 'Finanzas', EN: 'Finance', ET: 'Rahandus', DE: 'Finanzen' }), glow: 'border-violet-500/80 shadow-[0_0_20px_rgba(139,92,246,0.5)]', borderGlow: 'border-violet-500/50 shadow-[0_0_15px_rgba(139,92,246,0.4)]', bgGlow: 'bg-violet-500', neonText: 'from-violet-400 via-purple-300 to-violet-200' },
+    { id: 'retail', imageUrl: `${import.meta.env.BASE_URL}images/industries/retail.jpg`, label: t({ ES: 'Retail', EN: 'Retail', ET: 'Jaekaubandus', DE: 'Einzelhandel' }), glow: 'border-amber-500/80 shadow-[0_0_20px_rgba(245,158,11,0.5)]', borderGlow: 'border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.4)]', bgGlow: 'bg-amber-500', neonText: 'from-amber-400 via-orange-300 to-amber-200' },
+    { id: 'tech', imageUrl: `${import.meta.env.BASE_URL}images/industries/tech.jpg`, label: t({ ES: 'Tecnología', EN: 'Technology', ET: 'Tehnoloogia', DE: 'Technologie' }), glow: 'border-blue-500/80 shadow-[0_0_20px_rgba(59,130,246,0.5)]', borderGlow: 'border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.4)]', bgGlow: 'bg-blue-500', neonText: 'from-blue-400 via-indigo-300 to-blue-200' },
   ];
 
   const b2bCases: Record<string, string[]> = {
@@ -95,37 +95,37 @@ export const Services = () => {
                 icon: <FileText size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
                 desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe y clasificación de intenciones para NLP.', EN: 'Semantic labeling, NER, bilingual sentiment analysis and intent classification for NLP.', ET: 'Semantiline märgistamine, NER, kakskeelne sentimentanalüüs NLP jaoks.', DE: 'Semantische Kennzeichnung, NER, bilinguale Sentimentanalyse für NLP.' }),
-                imageUrl: '/images/services/service-text.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-text.webp`
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
                 desc: t({ ES: 'Transcripción precisa, diarización de hablantes y etiquetado fonético para modelos de voz.', EN: 'Accurate transcription, speaker diarization, and phonetic labeling for voice models.', ET: 'Täpne transkriptsioon ja foneetiline märgistamine häälemudelitele.', DE: 'Genaue Transkription und phonetische Kennzeichnung für Sprachmodelle.' }),
-                imageUrl: '/images/services/service-audio.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-audio.webp`
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
                 desc: t({ ES: 'Etiquetado de objetos, seguimiento de cajas delimitadoras y reconocimiento de acciones espaciales.', EN: 'Object labeling, bounding box tracking, and spatial action recognition.', ET: 'Objektide märgistamine ja ruumiline tegevuse tuvastamine.', DE: 'Objektkennzeichnung und räumliche Aktionserkennung.' }),
-                imageUrl: '/images/services/service-video.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-video.webp`
               },
               {
                 icon: <LayoutDashboard size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Clasificación de Imágenes', EN: 'Image Classification', ET: 'Piltide klassifitseerimine', DE: 'Bildklassifizierung' }),
                 desc: t({ ES: 'Segmentación semántica, polígonos, puntos clave (keypoints) para visión por computadora.', EN: 'Semantic segmentation, polygons, keypoints for computer vision.', ET: 'Semantiline segmenteerimine ja võtmepunktid arvutinägemise jaoks.', DE: 'Semantische Segmentierung und Keypoints für Computer Vision.' }),
-                imageUrl: '/images/services/service-image.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-image.webp`
               },
               {
                 icon: <Languages size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'RLHF Bilingüe', EN: 'Bilingual RLHF', ET: 'Kakskeelne RLHF', DE: 'Bilinguales RLHF' }),
                 desc: t({ ES: 'Reinforcement Learning from Human Feedback con especialistas nativos en ES y EN.', EN: 'Reinforcement Learning from Human Feedback with native specialists in ES and EN.', ET: 'Stiimulõpe inimeste tagasisidest (RLHF) kohalike spetsialistidega.', DE: 'Reinforcement Learning from Human Feedback mit muttersprachlichen Spezialisten.' }),
-                imageUrl: '/images/services/service-rlhf.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-rlhf.webp`
               },
               {
                 icon: <ShieldCheck size={40} className="text-[#4A90D9] group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Moderación de Contenido', EN: 'Content Moderation', ET: 'Sisu modereerimine', DE: 'Inhaltsmoderation' }),
                 desc: t({ ES: 'Revisión y etiquetado de contenido sensible con políticas de seguridad y confianza.', EN: 'Review and labeling of sensitive content with trust and safety policies.', ET: 'Tundliku sisu ülevaatamine ja märgistamine usalduspoliitikaga.', DE: 'Überprüfung und Kennzeichnung sensibler Inhalte mit Sicherheitsrichtlinien.' }),
-                imageUrl: '/images/services/service-moderation.webp'
+                imageUrl: `${import.meta.env.BASE_URL}images/services/service-moderation.webp`
               }
             ].map((srv, idx) => (
               <motion.div

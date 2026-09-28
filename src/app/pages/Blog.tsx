@@ -28,7 +28,7 @@ const AUTHORS: Record<Post['author'], { name: string; role: Trans; avatar: strin
       ET: 'Andmeteaduse juht',
       DE: 'Leiter Data Science',
     },
-    avatar: '/images/team/juan-ramirez.jpeg',
+    avatar: `${import.meta.env.BASE_URL}images/team/juan-ramirez.jpeg`,
   },
   carlos: {
     name: 'Carlos Chacón',
@@ -38,7 +38,7 @@ const AUTHORS: Record<Post['author'], { name: string; role: Trans; avatar: strin
       ET: 'Kvaliteedijuht',
       DE: 'Qualitätsmanager',
     },
-    avatar: '/images/team/carlos-chacon.jpeg',
+    avatar: `${import.meta.env.BASE_URL}images/team/carlos-chacon.jpeg`,
   },
 };
 

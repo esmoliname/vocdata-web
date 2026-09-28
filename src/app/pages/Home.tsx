@@ -173,19 +173,19 @@ export const Home = () => {
                 icon: <FileText size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Texto', EN: 'Text Annotation', ET: 'Teksti annoteerimine', DE: 'Textannotation' }),
                 desc: t({ ES: 'Etiquetado semántico, NER, análisis de sentimiento bilingüe', EN: 'Semantic labeling, NER, bilingual sentiment analysis', ET: 'Semantiline märgistamine, NER', DE: 'Semantische Kennzeichnung, NER' }),
-                img: '/images/services/service-text.webp'
+                img: `${import.meta.env.BASE_URL}images/services/service-text.webp`
               },
               {
                 icon: <Mic size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Audio', EN: 'Audio Annotation', ET: 'Heli annoteerimine', DE: 'Audioannotation' }),
                 desc: t({ ES: 'Transcripción, diarización de hablantes, etiquetado fonético', EN: 'Transcription, speaker diarization, phonetic labeling', ET: 'Transkriptsioon, kõnelejate eristamine', DE: 'Transkription, Sprecherdiarisierung' }),
-                img: '/images/services/service-audio.webp'
+                img: `${import.meta.env.BASE_URL}images/services/service-audio.webp`
               },
               {
                 icon: <Video size={40} className="text-[#4A90D9] mb-4 group-hover:text-[#2ECC71] transition-colors" />,
                 title: t({ ES: 'Anotación de Video', EN: 'Video Annotation', ET: 'Video annoteerimine', DE: 'Videoannotation' }),
                 desc: t({ ES: 'Etiquetado de objetos, seguimiento, reconocimiento de acciones', EN: 'Object labeling, tracking, action recognition', ET: 'Objektide märgistamine, jälgimine', DE: 'Objektkennzeichnung, Tracking' }),
-                img: '/images/services/service-video.webp'
+                img: `${import.meta.env.BASE_URL}images/services/service-video.webp`
               }
             ].map((srv, idx) => (
               <motion.div

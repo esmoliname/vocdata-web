@@ -3,7 +3,7 @@ import { cn } from '../../utils/cn';
 
 export const Logo = ({ className }: { className?: string }) => (
   <img
-    src="/images/logo.jpg"
+    src={`${import.meta.env.BASE_URL}images/logo.jpg`}
     alt="Vocdata.ai Logo"
     loading="eager"
     decoding="async"
