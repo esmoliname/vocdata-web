@@ -271,7 +271,7 @@ export const Contact = () => {
                 {t({ ES: 'Oficinas', EN: 'Offices', ET: 'Kontorid', DE: 'Büros' })}
               </h4>
               <div className="space-y-1">
-                <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Tallinn, Estonia</p>
+                <p className="font-normal text-[16px] text-[#E2E8F0] leading-[1.5]">Quesada, Costa Rica 21001</p>
               </div>
             </div>
 

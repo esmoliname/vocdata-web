@@ -50,7 +50,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-slate-400 font-mono">
             <span>datasolution@vocdatawebvercelapp.com</span>
             <span className="hidden md:inline text-slate-700">|</span>
-            <span>Tallinn, Estonia</span>
+            <span>Quesada, Costa Rica 21001</span>
           </div>
 
           {/* Social Links */}
